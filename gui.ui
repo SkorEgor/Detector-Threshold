@@ -6,16 +6,35 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>713</width>
-    <height>573</height>
+    <width>1110</width>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">color: rgb(255, 255, 255);
-</string>
+   <string notr="true">
+QWidget{
+	color: rgb(255, 255, 255);
+	font-size: 10pt;
+}
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+RadioButton */
+QRadioButton::indicator {
+    border: 3px solid rgb(255, 255, 255);
+	width: 20px;
+	height: 15px;
+	border-radius: 10px;
+	background-color: rgb(98, 114, 165);
+}
+QRadioButton::indicator:hover {
+    border: 3px solid rgb(189, 147, 249);
+}
+QRadioButton::indicator:checked {
+    background: 3px solid rgb(215, 132, 191);
+    border: 3px solid rgb(116, 116, 169);
+}</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
@@ -49,7 +68,7 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>200</width>
+       <width>210</width>
        <height>16777215</height>
       </size>
      </property>
@@ -146,8 +165,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>200</width>
-              <height>523</height>
+              <width>210</width>
+              <height>635</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="Layout_scroll_menu">
@@ -257,6 +276,7 @@
                      <property name="styleSheet">
                       <string notr="true">/*Стандартное состояние для кнопки*/
 QPushButton {
+	font-size: 12pt;
 	background-color: rgb(98, 114, 165);/* задает цвет фона */
 	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
 	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
@@ -319,7 +339,7 @@ QPushButton:pressed      {
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(92, 105, 150);</string>
                   </property>
-                  <layout class="QVBoxLayout" name="layout_data_body" stretch="0,0">
+                  <layout class="QVBoxLayout" name="layout_data_body" stretch="0,0,0">
                    <property name="spacing">
                     <number>0</number>
                    </property>
@@ -358,8 +378,8 @@ QPushButton:pressed      {
                      <property name="font">
                       <font>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
-                       <bold>false</bold>
+                       <weight>75</weight>
+                       <bold>true</bold>
                       </font>
                      </property>
                      <property name="cursor">
@@ -374,7 +394,7 @@ QPushButton:pressed      {
                      <property name="styleSheet">
                       <string notr="true">QGroupBox{
 	color:rgb(215, 132, 191);	/* задает цвет шрифта */
-	font-size:10pt;					/* задает размер шрифта */
+
 }</string>
                      </property>
                      <property name="title">
@@ -509,19 +529,6 @@ QCheckBox::indicator:checked {
                         </property>
                        </widget>
                       </item>
-                      <item>
-                       <widget class="QLabel" name="label_status_no_gas">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="text">
-                         <string/>
-                        </property>
-                       </widget>
-                      </item>
                      </layout>
                     </widget>
                    </item>
@@ -548,8 +555,8 @@ QCheckBox::indicator:checked {
                      <property name="font">
                       <font>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
-                       <bold>false</bold>
+                       <weight>75</weight>
+                       <bold>true</bold>
                       </font>
                      </property>
                      <property name="cursor">
@@ -564,7 +571,6 @@ QCheckBox::indicator:checked {
                      <property name="styleSheet">
                       <string notr="true">QGroupBox{
 	color:rgb(215, 132, 191);	/* задает цвет шрифта */
-	font-size:10pt;					/* задает размер шрифта */
 }</string>
                      </property>
                      <property name="title">
@@ -699,16 +705,107 @@ QCheckBox::indicator:checked {
                         </property>
                        </widget>
                       </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_with_gas_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="sizeIncrement">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="baseSize">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>10</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>ArrowCursor</cursorShape>
+                     </property>
+                     <property name="mouseTracking">
+                      <bool>false</bool>
+                     </property>
+                     <property name="tabletTracking">
+                      <bool>false</bool>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QGroupBox{
+	color:rgb(215, 132, 191);	/* задает цвет шрифта */
+}</string>
+                     </property>
+                     <property name="title">
+                      <string>Диапазон частот</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                     <property name="checkable">
+                      <bool>false</bool>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout">
+                      <property name="spacing">
+                       <number>0</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
                       <item>
-                       <widget class="QLabel" name="label_status_witth_gas">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
+                       <widget class="QRadioButton" name="radioButton">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>30</height>
+                         </size>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string>Весь</string>
+                        </property>
+                        <property name="checked">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_2">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Некоторые</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
                         </property>
                        </widget>
                       </item>

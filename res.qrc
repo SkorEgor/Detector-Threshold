@@ -15,4 +15,8 @@
     <file>resource/menu_titles/menu_minus_white_36dp.svg</file>
     <file>resource/menu_titles/menu_data_white_36dp.svg</file>
   </qresource>
+  <qresource prefix="application picture">
+    <file>resource/application picture/app_icon.png</file>
+    <file>resource/application picture/app_icon-round.png</file>
+  </qresource>
 </RCC>

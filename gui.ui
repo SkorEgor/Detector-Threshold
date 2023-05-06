@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1110</width>
-    <height>685</height>
+    <height>521</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,6 +35,45 @@ QRadioButton::indicator:checked {
     background: 3px solid rgb(215, 132, 191);
 	border: 3px solid rgb(52, 59, 72);	
 }
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+ScrollBars */
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(52, 59, 72);
+    width: 8px;
+    margin: 21px 0 21px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background: rgb(189, 147, 249);
+    min-height: 25px;
+	border-radius: 4px
+ }
+ QScrollBar::add-line:vertical {
+     border: none;
+    background: rgb(55, 63, 77);
+     height: 20px;
+	border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+    background: rgb(55, 63, 77);
+     height: 20px;
+	border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: rgb(160, 126, 212);
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: none;
+ }
 </string>
   </property>
   <property name="sizeGripEnabled">
@@ -140,8 +179,17 @@ QRadioButton::indicator:checked {
          </property>
          <item>
           <widget class="QScrollArea" name="scrollArea_menu_body">
+           <property name="tabletTracking">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <property name="frameShape">
             <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Sunken</enum>
            </property>
            <property name="lineWidth">
             <number>1</number>
@@ -167,7 +215,7 @@ QRadioButton::indicator:checked {
               <x>0</x>
               <y>0</y>
               <width>210</width>
-              <height>635</height>
+              <height>471</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="Layout_scroll_menu">
@@ -257,6 +305,12 @@ QRadioButton::indicator:checked {
                        <height>35</height>
                       </size>
                      </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>35</height>
+                      </size>
+                     </property>
                      <property name="font">
                       <font>
                        <pointsize>12</pointsize>
@@ -306,6 +360,10 @@ QPushButton:pressed      {
                      <property name="text">
                       <string>Данные</string>
                      </property>
+                     <property name="icon">
+                      <iconset resource="res.qrc">
+                       <normaloff>:/checkbox_status_success/resource/checkbox_status_success/check_error_purple_24dp.svg</normaloff>:/checkbox_status_success/resource/checkbox_status_success/check_error_purple_24dp.svg</iconset>
+                     </property>
                      <property name="iconSize">
                       <size>
                        <width>0</width>
@@ -316,7 +374,7 @@ QPushButton:pressed      {
                       <bool>true</bool>
                      </property>
                      <property name="checked">
-                      <bool>false</bool>
+                      <bool>true</bool>
                      </property>
                      <property name="autoRepeat">
                       <bool>false</bool>
@@ -354,13 +412,19 @@ QPushButton:pressed      {
                     <number>5</number>
                    </property>
                    <property name="bottomMargin">
-                    <number>10</number>
+                    <number>0</number>
                    </property>
                    <item>
                     <widget class="QGroupBox" name="groupBox_no_gas">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
                        <height>50</height>
                       </size>
                      </property>
@@ -427,7 +491,19 @@ QPushButton:pressed      {
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QLabel" name="label_file_name_no_gas">
+                       <widget class="QLabel" name="label_text_file_name_no_gas">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>30</height>
+                         </size>
+                        </property>
                         <property name="text">
                          <string>Нет файла</string>
                         </property>
@@ -452,6 +528,24 @@ QPushButton:pressed      {
                           <width>30</width>
                           <height>30</height>
                          </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="cursor">
+                         <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
+                        <property name="whatsThis">
+                         <string/>
+                        </property>
+                        <property name="accessibleName">
+                         <string/>
+                        </property>
+                        <property name="accessibleDescription">
+                         <string/>
                         </property>
                         <property name="styleSheet">
                          <string notr="true">/*Стандартное состояние для кнопки*/
@@ -496,8 +590,23 @@ QPushButton:pressed      {
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
-                          <height>0</height>
+                          <height>30</height>
                          </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="whatsThis">
+                         <string/>
+                        </property>
+                        <property name="accessibleName">
+                         <string/>
+                        </property>
+                        <property name="accessibleDescription">
+                         <string/>
                         </property>
                         <property name="styleSheet">
                          <string notr="true">/* Стандартное состояние*/
@@ -603,7 +712,19 @@ QCheckBox::indicator:checked {
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QLabel" name="label_file_name_with_gas">
+                       <widget class="QLabel" name="label_text_file_name_with_gas">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>30</height>
+                         </size>
+                        </property>
                         <property name="text">
                          <string>Нет файла</string>
                         </property>
@@ -625,9 +746,18 @@ QCheckBox::indicator:checked {
                         </property>
                         <property name="minimumSize">
                          <size>
-                          <width>30</width>
+                          <width>0</width>
                           <height>30</height>
                          </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="cursor">
+                         <cursorShape>PointingHandCursor</cursorShape>
                         </property>
                         <property name="styleSheet">
                          <string notr="true">/*Стандартное состояние для кнопки*/
@@ -672,7 +802,13 @@ QPushButton:pressed      {
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
-                          <height>0</height>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>30</height>
                          </size>
                         </property>
                         <property name="styleSheet">
@@ -710,11 +846,17 @@ QCheckBox::indicator:checked {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QGroupBox" name="groupBox_with_gas_2">
+                    <widget class="QGroupBox" name="groupBox_frequency_range">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
-                       <height>50</height>
+                       <height>90</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>16777215</height>
                       </size>
                      </property>
                      <property name="sizeIncrement">
@@ -762,7 +904,7 @@ QCheckBox::indicator:checked {
                      <property name="checkable">
                       <bool>false</bool>
                      </property>
-                     <layout class="QVBoxLayout" name="verticalLayout">
+                     <layout class="QVBoxLayout" name="layout_frequency_range">
                       <property name="spacing">
                        <number>0</number>
                       </property>
@@ -779,15 +921,37 @@ QCheckBox::indicator:checked {
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QRadioButton" name="radioButton">
+                       <widget class="QRadioButton" name="radioButton_all_range">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
                           <height>30</height>
                          </size>
                         </property>
+                        <property name="cursor">
+                         <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
                         <property name="text">
                          <string>Весь</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_selected_range">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="cursor">
+                         <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
+                        <property name="text">
+                         <string>Некоторые</string>
                         </property>
                         <property name="checked">
                          <bool>false</bool>
@@ -795,19 +959,259 @@ QCheckBox::indicator:checked {
                        </widget>
                       </item>
                       <item>
-                       <widget class="QRadioButton" name="radioButton_2">
+                       <widget class="QWidget" name="widget_start_range" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
                           <height>30</height>
                          </size>
                         </property>
-                        <property name="text">
-                         <string>Некоторые</string>
+                        <layout class="QHBoxLayout" name="layout_start_range">
+                         <property name="spacing">
+                          <number>0</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_text_start_range">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>От: </string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEdit_start_range">
+                           <property name="enabled">
+                            <bool>false</bool>
+                           </property>
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>120</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">/* Стиль по умолчанию */
+QLineEdit:enabled{
+	background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */
+	border: 2px solid rgb(255, 255, 255);
+}
+
+/* Если поле отключено */
+QLineEdit:disabled {
+	background-color:  rgba(67, 74, 88, 0); /* Устанавливаем цвет заливки */
+	border: 1px solid rgb(255, 255, 255); 
+	color: rgb(67, 74, 88);
+}</string>
+                           </property>
+                           <property name="text">
+                            <string notr="true">22308</string>
+                           </property>
+                           <property name="maxLength">
+                            <number>10</number>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                           <property name="dragEnabled">
+                            <bool>false</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_text_units_start_range">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string> [МГц]</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QWidget" name="widget_end_range" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
-                        <property name="checked">
-                         <bool>true</bool>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>30</height>
+                         </size>
                         </property>
+                        <layout class="QHBoxLayout" name="layout_end_range">
+                         <property name="spacing">
+                          <number>0</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_text_end_range">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>До: </string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEdit_end_range">
+                           <property name="enabled">
+                            <bool>false</bool>
+                           </property>
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>120</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>120</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">/* Стиль по умолчанию */
+QLineEdit:enabled{
+	background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */
+	border: 2px solid rgb(255, 255, 255);
+}
+
+/* Если поле отключено */
+QLineEdit:disabled {
+	background-color:  rgba(67, 74, 88, 0); /* Устанавливаем цвет заливки */
+	border: 1px solid rgb(255, 255, 255); 
+	color: rgb(67, 74, 88);
+}</string>
+                           </property>
+                           <property name="text">
+                            <string notr="true">22342</string>
+                           </property>
+                           <property name="maxLength">
+                            <number>10</number>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                           <property name="dragEnabled">
+                            <bool>false</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_text_units_end_range">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string> [МГц]</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
                        </widget>
                       </item>
                      </layout>
@@ -937,15 +1341,47 @@ QCheckBox::indicator:checked {
    <sender>pushButton_data_header</sender>
    <signal>clicked(bool)</signal>
    <receiver>widget_data_body</receiver>
-   <slot>setHidden(bool)</slot>
+   <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>185</x>
+     <x>174</x>
      <y>56</y>
     </hint>
     <hint type="destinationlabel">
-     <x>233</x>
-     <y>91</y>
+     <x>209</x>
+     <y>175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_selected_range</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEdit_start_range</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>57</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>59</x>
+     <y>268</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_selected_range</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEdit_end_range</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>137</x>
+     <y>233</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>114</x>
+     <y>308</y>
     </hint>
    </hints>
   </connection>

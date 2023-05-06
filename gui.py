@@ -14,8 +14,67 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(713, 573)
-        Dialog.setStyleSheet("color: rgb(255, 255, 255);\n"
+        Dialog.resize(1110, 521)
+        Dialog.setStyleSheet("\n"
+"QWidget{\n"
+"    color: rgb(255, 255, 255);\n"
+"    font-size: 10pt;\n"
+"}\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"RadioButton */\n"
+"QRadioButton::indicator {\n"
+"    border: 3px solid rgb(52, 59, 72);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
+"    border-radius: 10px;\n"
+"    background: rgb(44, 49, 60);\n"
+"}\n"
+"QRadioButton::indicator:hover {\n"
+"    border: 3px solid rgb(58, 66, 81);\n"
+"}\n"
+"QRadioButton::indicator:checked {\n"
+"    background: 3px solid rgb(215, 132, 191);\n"
+"    border: 3px solid rgb(52, 59, 72);    \n"
+"}\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"ScrollBars */\n"
+" QScrollBar:vertical {\n"
+"    border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    width: 8px;\n"
+"    margin: 21px 0 21px 0;\n"
+"    border-radius: 0px;\n"
+" }\n"
+" QScrollBar::handle:vertical {    \n"
+"    background: rgb(189, 147, 249);\n"
+"    min-height: 25px;\n"
+"    border-radius: 4px\n"
+" }\n"
+" QScrollBar::add-line:vertical {\n"
+"     border: none;\n"
+"    background: rgb(55, 63, 77);\n"
+"     height: 20px;\n"
+"    border-bottom-left-radius: 4px;\n"
+"    border-bottom-right-radius: 4px;\n"
+"     subcontrol-position: bottom;\n"
+"     subcontrol-origin: margin;\n"
+" }\n"
+" QScrollBar::sub-line:vertical {\n"
+"    border: none;\n"
+"    background: rgb(55, 63, 77);\n"
+"     height: 20px;\n"
+"    border-top-left-radius: 4px;\n"
+"    border-top-right-radius: 4px;\n"
+"     subcontrol-position: top;\n"
+"     subcontrol-origin: margin;\n"
+" }\n"
+" QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"     background: rgb(160, 126, 212);\n"
+" }\n"
+"\n"
+" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"     background: none;\n"
+" }\n"
 "")
         Dialog.setSizeGripEnabled(False)
         Dialog.setModal(False)
@@ -29,7 +88,7 @@ class Ui_Dialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget_menu.sizePolicy().hasHeightForWidth())
         self.widget_menu.setSizePolicy(sizePolicy)
-        self.widget_menu.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.widget_menu.setMaximumSize(QtCore.QSize(210, 16777215))
         self.widget_menu.setStyleSheet("")
         self.widget_menu.setObjectName("widget_menu")
         self.layout_menu = QtWidgets.QVBoxLayout(self.widget_menu)
@@ -40,11 +99,11 @@ class Ui_Dialog(object):
         self.widget_menu_title = QtWidgets.QWidget(self.widget_menu)
         self.widget_menu_title.setMinimumSize(QtCore.QSize(0, 50))
         self.widget_menu_title.setMaximumSize(QtCore.QSize(16777215, 50))
-        self.widget_menu_title.setStyleSheet("background-color: rgb(91, 107, 153);")
+        self.widget_menu_title.setStyleSheet("background-color: rgb(33, 37, 43);")
         self.widget_menu_title.setObjectName("widget_menu_title")
         self.layout_menu.addWidget(self.widget_menu_title)
         self.widget_menu_body = QtWidgets.QWidget(self.widget_menu)
-        self.widget_menu_body.setStyleSheet("background-color: rgb(98, 114, 165);")
+        self.widget_menu_body.setStyleSheet("background-color: rgb(33, 37, 43);")
         self.widget_menu_body.setObjectName("widget_menu_body")
         self.layout_menu_body = QtWidgets.QVBoxLayout(self.widget_menu_body)
         self.layout_menu_body.setSizeConstraint(QtWidgets.QLayout.SetMaximumSize)
@@ -52,7 +111,10 @@ class Ui_Dialog(object):
         self.layout_menu_body.setSpacing(0)
         self.layout_menu_body.setObjectName("layout_menu_body")
         self.scrollArea_menu_body = QtWidgets.QScrollArea(self.widget_menu_body)
+        self.scrollArea_menu_body.setTabletTracking(False)
+        self.scrollArea_menu_body.setStyleSheet("")
         self.scrollArea_menu_body.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.scrollArea_menu_body.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.scrollArea_menu_body.setLineWidth(1)
         self.scrollArea_menu_body.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.scrollArea_menu_body.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -61,7 +123,7 @@ class Ui_Dialog(object):
         self.scrollArea_menu_body.setAlignment(QtCore.Qt.AlignCenter)
         self.scrollArea_menu_body.setObjectName("scrollArea_menu_body")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 200, 523))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 210, 471))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.Layout_scroll_menu = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.Layout_scroll_menu.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
@@ -95,6 +157,7 @@ class Ui_Dialog(object):
         sizePolicy.setHeightForWidth(self.pushButton_data_header.sizePolicy().hasHeightForWidth())
         self.pushButton_data_header.setSizePolicy(sizePolicy)
         self.pushButton_data_header.setMinimumSize(QtCore.QSize(0, 35))
+        self.pushButton_data_header.setMaximumSize(QtCore.QSize(16777215, 35))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.pushButton_data_header.setFont(font)
@@ -104,7 +167,8 @@ class Ui_Dialog(object):
         self.pushButton_data_header.setAutoFillBackground(False)
         self.pushButton_data_header.setStyleSheet("/*Стандартное состояние для кнопки*/\n"
 "QPushButton {\n"
-"    background-color: rgb(98, 114, 165);/* задает цвет фона */\n"
+"    font-size: 12pt;\n"
+"    background-color:rgb(37, 41, 48);/* задает цвет фона */\n"
 "    display: inline-block;                            /* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */\n"
 "    border: 1px solid rgb(52, 59, 72);        /* задает границу элемента */\n"
 "\n"
@@ -117,7 +181,7 @@ class Ui_Dialog(object):
 "\n"
 "/* срабатывает, когда пользователь наводит на элемент мышью */\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(86, 98, 138);            /* задаем цвет фона */\n"
+"    background-color:rgb(40, 44, 52);            /* задаем цвет фона */\n"
 "    border: none;                                                /* без границ */\n"
 "    border-left:4px solid rgb(171, 125, 171);    /* С правой красной раницей */\n"
 "}\n"
@@ -125,12 +189,12 @@ class Ui_Dialog(object):
 "\n"
 "/* срабатывает, при нажатии*/\n"
 "QPushButton:pressed      {\n"
-"    background-color: rgb(189, 146, 251);        /* задаем цвет фона */\n"
+"    background-color:rgb(189, 147, 249);        /* задаем цвет фона */\n"
 "    border: none;                                                /* без границ */\n"
 "}")
         self.pushButton_data_header.setIconSize(QtCore.QSize(0, 0))
         self.pushButton_data_header.setCheckable(True)
-        self.pushButton_data_header.setChecked(False)
+        self.pushButton_data_header.setChecked(True)
         self.pushButton_data_header.setAutoRepeat(False)
         self.pushButton_data_header.setAutoExclusive(False)
         self.pushButton_data_header.setDefault(False)
@@ -139,27 +203,28 @@ class Ui_Dialog(object):
         self.horizontalLayout.addWidget(self.pushButton_data_header)
         self.layout_menu_data.addWidget(self.widget_data_header)
         self.widget_data_body = QtWidgets.QWidget(self.widget_data)
-        self.widget_data_body.setStyleSheet("background-color: rgb(92, 105, 150);")
+        self.widget_data_body.setStyleSheet("background-color: rgb(44, 49, 58);")
         self.widget_data_body.setObjectName("widget_data_body")
         self.layout_data_body = QtWidgets.QVBoxLayout(self.widget_data_body)
-        self.layout_data_body.setContentsMargins(5, 0, 5, 10)
+        self.layout_data_body.setContentsMargins(5, 0, 5, 0)
         self.layout_data_body.setSpacing(0)
         self.layout_data_body.setObjectName("layout_data_body")
         self.groupBox_no_gas = QtWidgets.QGroupBox(self.widget_data_body)
         self.groupBox_no_gas.setMinimumSize(QtCore.QSize(0, 50))
+        self.groupBox_no_gas.setMaximumSize(QtCore.QSize(16777215, 50))
         self.groupBox_no_gas.setSizeIncrement(QtCore.QSize(0, 0))
         self.groupBox_no_gas.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
+        font.setBold(True)
+        font.setWeight(75)
         self.groupBox_no_gas.setFont(font)
         self.groupBox_no_gas.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.groupBox_no_gas.setMouseTracking(False)
         self.groupBox_no_gas.setTabletTracking(False)
         self.groupBox_no_gas.setStyleSheet("QGroupBox{\n"
 "    color:rgb(215, 132, 191);    /* задает цвет шрифта */\n"
-"    font-size:10pt;                    /* задает размер шрифта */\n"
+"\n"
 "}")
         self.groupBox_no_gas.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.groupBox_no_gas.setFlat(True)
@@ -169,11 +234,13 @@ class Ui_Dialog(object):
         self.layout_no_gas.setContentsMargins(5, 0, 5, 0)
         self.layout_no_gas.setSpacing(0)
         self.layout_no_gas.setObjectName("layout_no_gas")
-        self.label_file_name_no_gas = QtWidgets.QLabel(self.groupBox_no_gas)
-        self.label_file_name_no_gas.setTextFormat(QtCore.Qt.AutoText)
-        self.label_file_name_no_gas.setScaledContents(False)
-        self.label_file_name_no_gas.setObjectName("label_file_name_no_gas")
-        self.layout_no_gas.addWidget(self.label_file_name_no_gas)
+        self.label_text_file_name_no_gas = QtWidgets.QLabel(self.groupBox_no_gas)
+        self.label_text_file_name_no_gas.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_text_file_name_no_gas.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.label_text_file_name_no_gas.setTextFormat(QtCore.Qt.AutoText)
+        self.label_text_file_name_no_gas.setScaledContents(False)
+        self.label_text_file_name_no_gas.setObjectName("label_text_file_name_no_gas")
+        self.layout_no_gas.addWidget(self.label_text_file_name_no_gas)
         self.pushButton_reading_file_no_gas = QtWidgets.QPushButton(self.groupBox_no_gas)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -181,9 +248,11 @@ class Ui_Dialog(object):
         sizePolicy.setHeightForWidth(self.pushButton_reading_file_no_gas.sizePolicy().hasHeightForWidth())
         self.pushButton_reading_file_no_gas.setSizePolicy(sizePolicy)
         self.pushButton_reading_file_no_gas.setMinimumSize(QtCore.QSize(30, 30))
+        self.pushButton_reading_file_no_gas.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.pushButton_reading_file_no_gas.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_reading_file_no_gas.setStyleSheet("/*Стандартное состояние для кнопки*/\n"
 "QPushButton {\n"
-"    background-color: rgb(98, 114, 165);    /* задает цвет фона */\n"
+"    background-color: rgb(33, 37, 43);    /* задает цвет фона */\n"
 "    border: none;                                            /* без границ */\n"
 "\n"
 "        /* задает иконку */\n"
@@ -194,12 +263,12 @@ class Ui_Dialog(object):
 "\n"
 "/* срабатывает, когда пользователь наводит на элемент мышью */\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(86, 98, 138);        /* задает цвет фона */\n"
+"    background-color: rgb(40, 44, 52);        /* задает цвет фона */\n"
 "}\n"
 "\n"
 "/* срабатывает, при нажатии*/\n"
 "QPushButton:pressed      {\n"
-"    background-color: rgb(215, 132, 191);    /* задает цвет фона */\n"
+"    background-color:rgb(189, 147, 249);    /* задает цвет фона */\n"
 "}\n"
 "\n"
 "")
@@ -213,7 +282,9 @@ class Ui_Dialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.checkBox_download_no_gas.sizePolicy().hasHeightForWidth())
         self.checkBox_download_no_gas.setSizePolicy(sizePolicy)
-        self.checkBox_download_no_gas.setMinimumSize(QtCore.QSize(0, 0))
+        self.checkBox_download_no_gas.setMinimumSize(QtCore.QSize(0, 30))
+        self.checkBox_download_no_gas.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.checkBox_download_no_gas.setWhatsThis("")
         self.checkBox_download_no_gas.setStyleSheet("/* Стандартное состояние*/\n"
 "QCheckBox{\n"
 "    padding-left: 8px;        /* Отступ слева */\n"
@@ -244,15 +315,14 @@ class Ui_Dialog(object):
         self.groupBox_with_gas.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
+        font.setBold(True)
+        font.setWeight(75)
         self.groupBox_with_gas.setFont(font)
         self.groupBox_with_gas.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.groupBox_with_gas.setMouseTracking(False)
         self.groupBox_with_gas.setTabletTracking(False)
         self.groupBox_with_gas.setStyleSheet("QGroupBox{\n"
 "    color:rgb(215, 132, 191);    /* задает цвет шрифта */\n"
-"    font-size:10pt;                    /* задает размер шрифта */\n"
 "}")
         self.groupBox_with_gas.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.groupBox_with_gas.setFlat(True)
@@ -262,21 +332,25 @@ class Ui_Dialog(object):
         self.layout_with_gas.setContentsMargins(5, 0, 5, 0)
         self.layout_with_gas.setSpacing(0)
         self.layout_with_gas.setObjectName("layout_with_gas")
-        self.label_file_name_with_gas = QtWidgets.QLabel(self.groupBox_with_gas)
-        self.label_file_name_with_gas.setTextFormat(QtCore.Qt.AutoText)
-        self.label_file_name_with_gas.setScaledContents(False)
-        self.label_file_name_with_gas.setObjectName("label_file_name_with_gas")
-        self.layout_with_gas.addWidget(self.label_file_name_with_gas)
+        self.label_text_file_name_with_gas = QtWidgets.QLabel(self.groupBox_with_gas)
+        self.label_text_file_name_with_gas.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_text_file_name_with_gas.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.label_text_file_name_with_gas.setTextFormat(QtCore.Qt.AutoText)
+        self.label_text_file_name_with_gas.setScaledContents(False)
+        self.label_text_file_name_with_gas.setObjectName("label_text_file_name_with_gas")
+        self.layout_with_gas.addWidget(self.label_text_file_name_with_gas)
         self.pushButton_reading_file_with_gas = QtWidgets.QPushButton(self.groupBox_with_gas)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.pushButton_reading_file_with_gas.sizePolicy().hasHeightForWidth())
         self.pushButton_reading_file_with_gas.setSizePolicy(sizePolicy)
-        self.pushButton_reading_file_with_gas.setMinimumSize(QtCore.QSize(30, 30))
+        self.pushButton_reading_file_with_gas.setMinimumSize(QtCore.QSize(0, 30))
+        self.pushButton_reading_file_with_gas.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.pushButton_reading_file_with_gas.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_reading_file_with_gas.setStyleSheet("/*Стандартное состояние для кнопки*/\n"
 "QPushButton {\n"
-"    background-color: rgb(98, 114, 165);    /* задает цвет фона */\n"
+"    background-color: rgb(33, 37, 43);    /* задает цвет фона */\n"
 "    border: none;                                            /* без границ */\n"
 "\n"
 "        /* задает иконку */\n"
@@ -287,12 +361,12 @@ class Ui_Dialog(object):
 "\n"
 "/* срабатывает, когда пользователь наводит на элемент мышью */\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(86, 98, 138);        /* задает цвет фона */\n"
+"    background-color: rgb(40, 44, 52);        /* задает цвет фона */\n"
 "}\n"
 "\n"
 "/* срабатывает, при нажатии*/\n"
 "QPushButton:pressed      {\n"
-"    background-color: rgb(215, 132, 191);    /* задает цвет фона */\n"
+"    background-color:rgb(189, 147, 249);    /* задает цвет фона */\n"
 "}\n"
 "\n"
 "")
@@ -306,7 +380,8 @@ class Ui_Dialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.checkBox_download_with_gas.sizePolicy().hasHeightForWidth())
         self.checkBox_download_with_gas.setSizePolicy(sizePolicy)
-        self.checkBox_download_with_gas.setMinimumSize(QtCore.QSize(0, 0))
+        self.checkBox_download_with_gas.setMinimumSize(QtCore.QSize(0, 30))
+        self.checkBox_download_with_gas.setMaximumSize(QtCore.QSize(16777215, 30))
         self.checkBox_download_with_gas.setStyleSheet("/* Стандартное состояние*/\n"
 "QCheckBox{\n"
 "    padding-left: 8px;        /* Отступ слева */\n"
@@ -331,36 +406,163 @@ class Ui_Dialog(object):
         self.checkBox_download_with_gas.setObjectName("checkBox_download_with_gas")
         self.layout_with_gas.addWidget(self.checkBox_download_with_gas)
         self.layout_data_body.addWidget(self.groupBox_with_gas)
-        self.groupBox_with_gas_2 = QtWidgets.QGroupBox(self.widget_data_body)
-        self.groupBox_with_gas_2.setMinimumSize(QtCore.QSize(0, 50))
-        self.groupBox_with_gas_2.setSizeIncrement(QtCore.QSize(0, 0))
-        self.groupBox_with_gas_2.setBaseSize(QtCore.QSize(0, 0))
+        self.groupBox_frequency_range = QtWidgets.QGroupBox(self.widget_data_body)
+        self.groupBox_frequency_range.setMinimumSize(QtCore.QSize(0, 90))
+        self.groupBox_frequency_range.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.groupBox_frequency_range.setSizeIncrement(QtCore.QSize(0, 0))
+        self.groupBox_frequency_range.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.groupBox_with_gas_2.setFont(font)
-        self.groupBox_with_gas_2.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        self.groupBox_with_gas_2.setMouseTracking(False)
-        self.groupBox_with_gas_2.setTabletTracking(False)
-        self.groupBox_with_gas_2.setStyleSheet("QGroupBox{\n"
+        font.setBold(True)
+        font.setWeight(75)
+        self.groupBox_frequency_range.setFont(font)
+        self.groupBox_frequency_range.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.groupBox_frequency_range.setMouseTracking(False)
+        self.groupBox_frequency_range.setTabletTracking(False)
+        self.groupBox_frequency_range.setStyleSheet("QGroupBox{\n"
 "    color:rgb(215, 132, 191);    /* задает цвет шрифта */\n"
-"    font-size:10pt;                    /* задает размер шрифта */\n"
 "}")
-        self.groupBox_with_gas_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.groupBox_with_gas_2.setFlat(True)
-        self.groupBox_with_gas_2.setCheckable(False)
-        self.groupBox_with_gas_2.setObjectName("groupBox_with_gas_2")
-        self.layout_with_gas_2 = QtWidgets.QHBoxLayout(self.groupBox_with_gas_2)
-        self.layout_with_gas_2.setContentsMargins(5, 0, 5, 0)
-        self.layout_with_gas_2.setSpacing(0)
-        self.layout_with_gas_2.setObjectName("layout_with_gas_2")
-        self.label_file_name_with_gas_2 = QtWidgets.QLabel(self.groupBox_with_gas_2)
-        self.label_file_name_with_gas_2.setTextFormat(QtCore.Qt.AutoText)
-        self.label_file_name_with_gas_2.setScaledContents(False)
-        self.label_file_name_with_gas_2.setObjectName("label_file_name_with_gas_2")
-        self.layout_with_gas_2.addWidget(self.label_file_name_with_gas_2)
-        self.layout_data_body.addWidget(self.groupBox_with_gas_2)
+        self.groupBox_frequency_range.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.groupBox_frequency_range.setFlat(True)
+        self.groupBox_frequency_range.setCheckable(False)
+        self.groupBox_frequency_range.setObjectName("groupBox_frequency_range")
+        self.layout_frequency_range = QtWidgets.QVBoxLayout(self.groupBox_frequency_range)
+        self.layout_frequency_range.setContentsMargins(5, 0, 5, 0)
+        self.layout_frequency_range.setSpacing(0)
+        self.layout_frequency_range.setObjectName("layout_frequency_range")
+        self.radioButton_all_range = QtWidgets.QRadioButton(self.groupBox_frequency_range)
+        self.radioButton_all_range.setMinimumSize(QtCore.QSize(0, 30))
+        self.radioButton_all_range.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.radioButton_all_range.setChecked(True)
+        self.radioButton_all_range.setObjectName("radioButton_all_range")
+        self.layout_frequency_range.addWidget(self.radioButton_all_range)
+        self.radioButton_selected_range = QtWidgets.QRadioButton(self.groupBox_frequency_range)
+        self.radioButton_selected_range.setMinimumSize(QtCore.QSize(0, 30))
+        self.radioButton_selected_range.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.radioButton_selected_range.setChecked(False)
+        self.radioButton_selected_range.setObjectName("radioButton_selected_range")
+        self.layout_frequency_range.addWidget(self.radioButton_selected_range)
+        self.widget_start_range = QtWidgets.QWidget(self.groupBox_frequency_range)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Ignored, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_start_range.sizePolicy().hasHeightForWidth())
+        self.widget_start_range.setSizePolicy(sizePolicy)
+        self.widget_start_range.setMinimumSize(QtCore.QSize(0, 30))
+        self.widget_start_range.setObjectName("widget_start_range")
+        self.layout_start_range = QtWidgets.QHBoxLayout(self.widget_start_range)
+        self.layout_start_range.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
+        self.layout_start_range.setContentsMargins(0, 0, 0, 0)
+        self.layout_start_range.setSpacing(0)
+        self.layout_start_range.setObjectName("layout_start_range")
+        self.label_text_start_range = QtWidgets.QLabel(self.widget_start_range)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_text_start_range.sizePolicy().hasHeightForWidth())
+        self.label_text_start_range.setSizePolicy(sizePolicy)
+        self.label_text_start_range.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_text_start_range.setObjectName("label_text_start_range")
+        self.layout_start_range.addWidget(self.label_text_start_range)
+        self.lineEdit_start_range = QtWidgets.QLineEdit(self.widget_start_range)
+        self.lineEdit_start_range.setEnabled(False)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEdit_start_range.sizePolicy().hasHeightForWidth())
+        self.lineEdit_start_range.setSizePolicy(sizePolicy)
+        self.lineEdit_start_range.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_start_range.setMaximumSize(QtCore.QSize(120, 30))
+        self.lineEdit_start_range.setStyleSheet("/* Стиль по умолчанию */\n"
+"QLineEdit:enabled{\n"
+"    background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */\n"
+"    border: 2px solid rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"/* Если поле отключено */\n"
+"QLineEdit:disabled {\n"
+"    background-color:  rgba(67, 74, 88, 0); /* Устанавливаем цвет заливки */\n"
+"    border: 1px solid rgb(255, 255, 255); \n"
+"    color: rgb(67, 74, 88);\n"
+"}")
+        self.lineEdit_start_range.setText("22308")
+        self.lineEdit_start_range.setMaxLength(10)
+        self.lineEdit_start_range.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_start_range.setDragEnabled(False)
+        self.lineEdit_start_range.setObjectName("lineEdit_start_range")
+        self.layout_start_range.addWidget(self.lineEdit_start_range)
+        self.label_text_units_start_range = QtWidgets.QLabel(self.widget_start_range)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_text_units_start_range.sizePolicy().hasHeightForWidth())
+        self.label_text_units_start_range.setSizePolicy(sizePolicy)
+        self.label_text_units_start_range.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_text_units_start_range.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_text_units_start_range.setObjectName("label_text_units_start_range")
+        self.layout_start_range.addWidget(self.label_text_units_start_range)
+        self.layout_frequency_range.addWidget(self.widget_start_range)
+        self.widget_end_range = QtWidgets.QWidget(self.groupBox_frequency_range)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Ignored, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_end_range.sizePolicy().hasHeightForWidth())
+        self.widget_end_range.setSizePolicy(sizePolicy)
+        self.widget_end_range.setMinimumSize(QtCore.QSize(0, 30))
+        self.widget_end_range.setObjectName("widget_end_range")
+        self.layout_end_range = QtWidgets.QHBoxLayout(self.widget_end_range)
+        self.layout_end_range.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
+        self.layout_end_range.setContentsMargins(0, 0, 0, 0)
+        self.layout_end_range.setSpacing(0)
+        self.layout_end_range.setObjectName("layout_end_range")
+        self.label_text_end_range = QtWidgets.QLabel(self.widget_end_range)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_text_end_range.sizePolicy().hasHeightForWidth())
+        self.label_text_end_range.setSizePolicy(sizePolicy)
+        self.label_text_end_range.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_text_end_range.setObjectName("label_text_end_range")
+        self.layout_end_range.addWidget(self.label_text_end_range)
+        self.lineEdit_end_range = QtWidgets.QLineEdit(self.widget_end_range)
+        self.lineEdit_end_range.setEnabled(False)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEdit_end_range.sizePolicy().hasHeightForWidth())
+        self.lineEdit_end_range.setSizePolicy(sizePolicy)
+        self.lineEdit_end_range.setMinimumSize(QtCore.QSize(120, 30))
+        self.lineEdit_end_range.setMaximumSize(QtCore.QSize(120, 30))
+        self.lineEdit_end_range.setStyleSheet("/* Стиль по умолчанию */\n"
+"QLineEdit:enabled{\n"
+"    background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */\n"
+"    border: 2px solid rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"/* Если поле отключено */\n"
+"QLineEdit:disabled {\n"
+"    background-color:  rgba(67, 74, 88, 0); /* Устанавливаем цвет заливки */\n"
+"    border: 1px solid rgb(255, 255, 255); \n"
+"    color: rgb(67, 74, 88);\n"
+"}")
+        self.lineEdit_end_range.setText("22342")
+        self.lineEdit_end_range.setMaxLength(10)
+        self.lineEdit_end_range.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_end_range.setDragEnabled(False)
+        self.lineEdit_end_range.setObjectName("lineEdit_end_range")
+        self.layout_end_range.addWidget(self.lineEdit_end_range)
+        self.label_text_units_end_range = QtWidgets.QLabel(self.widget_end_range)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_text_units_end_range.sizePolicy().hasHeightForWidth())
+        self.label_text_units_end_range.setSizePolicy(sizePolicy)
+        self.label_text_units_end_range.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_text_units_end_range.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_text_units_end_range.setObjectName("label_text_units_end_range")
+        self.layout_end_range.addWidget(self.label_text_units_end_range)
+        self.layout_frequency_range.addWidget(self.widget_end_range)
+        self.layout_data_body.addWidget(self.groupBox_frequency_range)
         self.layout_menu_data.addWidget(self.widget_data_body)
         self.Layout_scroll_menu.addWidget(self.widget_data)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -379,7 +581,7 @@ class Ui_Dialog(object):
         self.widget_main_header = QtWidgets.QWidget(self.widget_main)
         self.widget_main_header.setMinimumSize(QtCore.QSize(0, 50))
         self.widget_main_header.setMaximumSize(QtCore.QSize(16777215, 50))
-        self.widget_main_header.setStyleSheet("background-color:rgb(98, 114, 165);")
+        self.widget_main_header.setStyleSheet("background-color: rgb(33, 37, 43);")
         self.widget_main_header.setObjectName("widget_main_header")
         self.layout_main.addWidget(self.widget_main_header)
         self.widget_main_body = QtWidgets.QWidget(self.widget_main)
@@ -399,7 +601,9 @@ class Ui_Dialog(object):
         self.layout_dialog.addWidget(self.widget_main)
 
         self.retranslateUi(Dialog)
-        self.pushButton_data_header.clicked['bool'].connect(self.widget_data_body.setHidden) # type: ignore
+        self.pushButton_data_header.clicked['bool'].connect(self.widget_data_body.setVisible) # type: ignore
+        self.radioButton_selected_range.toggled['bool'].connect(self.lineEdit_start_range.setEnabled) # type: ignore
+        self.radioButton_selected_range.toggled['bool'].connect(self.lineEdit_end_range.setEnabled) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
@@ -407,9 +611,14 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.pushButton_data_header.setText(_translate("Dialog", "Данные"))
         self.groupBox_no_gas.setTitle(_translate("Dialog", "Без исследуемого вещества"))
-        self.label_file_name_no_gas.setText(_translate("Dialog", "Нет файла"))
+        self.label_text_file_name_no_gas.setText(_translate("Dialog", "Нет файла"))
         self.groupBox_with_gas.setTitle(_translate("Dialog", "С исследуемым веществом"))
-        self.label_file_name_with_gas.setText(_translate("Dialog", "Нет файла"))
-        self.groupBox_with_gas_2.setTitle(_translate("Dialog", "Область"))
-        self.label_file_name_with_gas_2.setText(_translate("Dialog", "Нет файла"))
+        self.label_text_file_name_with_gas.setText(_translate("Dialog", "Нет файла"))
+        self.groupBox_frequency_range.setTitle(_translate("Dialog", "Диапазон частот"))
+        self.radioButton_all_range.setText(_translate("Dialog", "Весь"))
+        self.radioButton_selected_range.setText(_translate("Dialog", "Некоторые"))
+        self.label_text_start_range.setText(_translate("Dialog", "От: "))
+        self.label_text_units_start_range.setText(_translate("Dialog", " [МГц]"))
+        self.label_text_end_range.setText(_translate("Dialog", "До: "))
+        self.label_text_units_end_range.setText(_translate("Dialog", " [МГц]"))
 import res_rc

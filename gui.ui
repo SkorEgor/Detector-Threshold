@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1110</width>
+    <width>994</width>
     <height>660</height>
    </rect>
   </property>
@@ -220,7 +220,7 @@ ScrollBars */
             </property>
             <layout class="QVBoxLayout" name="Layout_scroll_menu">
              <property name="spacing">
-              <number>0</number>
+              <number>5</number>
              </property>
              <property name="sizeConstraint">
               <enum>QLayout::SetDefaultConstraint</enum>
@@ -1474,7 +1474,7 @@ QPushButton:pressed      {
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QLineEdit" name="lineEdit_end_range_2">
+                       <widget class="QLineEdit" name="lineEdit_threshold">
                         <property name="enabled">
                          <bool>true</bool>
                         </property>
@@ -1525,7 +1525,7 @@ QLineEdit:disabled {
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_text_units_end_range_2">
+                       <widget class="QLabel" name="label_text_units_threshold">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                           <horstretch>0</horstretch>
@@ -1547,7 +1547,7 @@ QLineEdit:disabled {
                        </widget>
                       </item>
                       <item>
-                       <widget class="QCheckBox" name="checkBox_download_no_gas_2">
+                       <widget class="QCheckBox" name="checkBox_status_threshold">
                         <property name="enabled">
                          <bool>true</bool>
                         </property>
@@ -1631,6 +1631,101 @@ image: none;
                </property>
               </spacer>
              </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_menu_calculate">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="accessibleDescription">
+                <string/>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">/*Стандартное состояние для кнопки*/
+QPushButton {
+	font-size: 12pt;
+	background-color:rgb(37, 41, 48);/* задает цвет фона */
+	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
+	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
+
+
+	/* задает иконку */
+	background-image: url(:/menu_titles/resource/menu_titles/done_white_36dp.svg);
+	background-position: left center;							/* выравнивание иконки */
+	background-repeat: no-repeat;								/* повторять иконку */
+} 
+
+/* срабатывает, когда пользователь наводит на элемент мышью */
+QPushButton:hover {
+	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
+	border: none;												/* без границ */
+	border-left:4px solid rgb(171, 125, 171);	/* С правой красной раницей */
+}
+
+
+/* срабатывает, при нажатии*/
+QPushButton:pressed      {
+	background-color:rgb(189, 147, 249);		/* задаем цвет фона */
+	border: none;												/* без границ */
+}</string>
+               </property>
+               <property name="text">
+                <string>Вычислить</string>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+               <property name="autoRepeat">
+                <bool>false</bool>
+               </property>
+               <property name="autoExclusive">
+                <bool>false</bool>
+               </property>
+               <property name="default">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </widget>
@@ -1683,7 +1778,7 @@ image: none;
       </item>
       <item>
        <widget class="QWidget" name="widget_main_body" native="true">
-        <layout class="QVBoxLayout" name="layout_main_body">
+        <layout class="QHBoxLayout" name="layout__main_body" stretch="1,0">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -1717,6 +1812,474 @@ image: none;
             <property name="bottomMargin">
              <number>0</number>
             </property>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_right" native="true">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <layout class="QHBoxLayout" name="layout_right">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QWidget" name="widget_close_open_table" native="true">
+              <layout class="QHBoxLayout" name="layout_close_open_table">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="pushButton_close_open_table">
+                 <property name="styleSheet">
+                  <string notr="true">/*Стандартное состояние для кнопки*/
+QPushButton {
+	background-color: rgb(33, 37, 43);	/* задает цвет фона */
+
+
+		/* задает иконку */
+	background-image: url(:/table/resource/table/table_rows_white_36dp.svg);
+	background-position: center;															/* выравнивание иконки */
+	background-repeat: no-repeat;														/* повторять иконку */
+
+ border: solid #4CAF50; /* Green */
+border-top-left-radius:7px;
+border-bottom-left-radius:7px;
+} 
+
+/* срабатывает, когда пользователь наводит на элемент мышью */
+QPushButton:hover {
+	background-color: rgb(101, 113, 131);		/* задает цвет фона */
+}
+
+/* срабатывает, при нажатии*/
+QPushButton:pressed      {
+	background-color:rgb(189, 147, 249);	/* задает цвет фона */
+}
+
+</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="res.qrc">
+                   <normaloff>:/table/resource/table/table_rows_white_36dp.svg</normaloff>:/table/resource/table/table_rows_white_36dp.svg</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>30</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="widget_table" native="true">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(37, 41, 48);</string>
+              </property>
+              <layout class="QVBoxLayout" name="layout_table">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QTableWidget" name="tableWidget_frequency_absorption"/>
+               </item>
+               <item>
+                <widget class="QWidget" name="widget_bottom" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(44, 49, 58);</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="layout_bottom">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <property name="sizeConstraint">
+                   <enum>QLayout::SetDefaultConstraint</enum>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_statistics_on_selected_frequencies">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_window_view">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>90</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="sizeIncrement">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="baseSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="cursor">
+                     <cursorShape>ArrowCursor</cursorShape>
+                    </property>
+                    <property name="mouseTracking">
+                     <bool>false</bool>
+                    </property>
+                    <property name="tabletTracking">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QGroupBox{
+	color:rgb(215, 132, 191);	/* задает цвет шрифта */
+}</string>
+                    </property>
+                    <property name="title">
+                     <string>Окно просмотра</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="flat">
+                     <bool>true</bool>
+                    </property>
+                    <property name="checkable">
+                     <bool>false</bool>
+                    </property>
+                    <layout class="QVBoxLayout" name="layout_frequency_range_3">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>5</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>5</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="label_text_window_width">
+                       <property name="text">
+                        <string>Ширина окна просмотра 
+ найденных частот</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="widget_input_window_view" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <layout class="QHBoxLayout" name="layout_start_range_8">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="sizeConstraint">
+                         <enum>QLayout::SetDefaultConstraint</enum>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLineEdit" name="lineEdit_window_width">
+                          <property name="enabled">
+                           <bool>true</bool>
+                          </property>
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>30</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>120</width>
+                            <height>30</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">/* Стиль по умолчанию */
+QLineEdit{
+	background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */
+	border: 2px solid rgb(255, 255, 255);
+}
+</string>
+                          </property>
+                          <property name="text">
+                           <string notr="true">10</string>
+                          </property>
+                          <property name="maxLength">
+                           <number>10</number>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                          <property name="dragEnabled">
+                           <bool>false</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_text_units_window_width">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>30</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string> [МГц]</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_save_table_to_file">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
+                    <property name="accessibleDescription">
+                     <string/>
+                    </property>
+                    <property name="layoutDirection">
+                     <enum>Qt::LeftToRight</enum>
+                    </property>
+                    <property name="autoFillBackground">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">/*Стандартное состояние для кнопки*/
+QPushButton {
+	font-size: 12pt;
+	background-color:rgb(37, 41, 48);/* задает цвет фона */
+	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
+	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
+
+
+	/* задает иконку */
+	background-image: url(:/table/resource/table/save_white_36dp.svg);
+	background-position: left center;							/* выравнивание иконки */
+	background-repeat: no-repeat;								/* повторять иконку */
+} 
+
+/* срабатывает, когда пользователь наводит на элемент мышью */
+QPushButton:hover {
+	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
+	border: none;												/* без границ */
+	border-left:4px solid rgb(171, 125, 171);	/* С правой красной раницей */
+}
+
+
+/* срабатывает, при нажатии*/
+QPushButton:pressed      {
+	background-color:rgb(189, 147, 249);		/* задаем цвет фона */
+	border: none;												/* без границ */
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Сохранить в файл</string>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="checkable">
+                     <bool>true</bool>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                    <property name="autoRepeat">
+                     <bool>false</bool>
+                    </property>
+                    <property name="autoExclusive">
+                     <bool>false</bool>
+                    </property>
+                    <property name="default">
+                     <bool>false</bool>
+                    </property>
+                    <property name="flat">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>
@@ -1793,6 +2356,22 @@ image: none;
     <hint type="destinationlabel">
      <x>209</x>
      <y>384</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_close_open_table</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>widget_table</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>658</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>707</x>
+     <y>185</y>
     </hint>
    </hints>
   </connection>

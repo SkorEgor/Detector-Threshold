@@ -7,6 +7,7 @@
     <file>resource/file_download_white_24dp.svg</file>
   </qresource>
   <qresource prefix="menu_titles">
+    <file>resource/menu_titles/menu_minus_white_36dp.svg</file>
     <file>resource/menu_titles/menu_data_white_36dp.svg</file>
   </qresource>
 </RCC>

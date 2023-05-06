@@ -22,19 +22,20 @@ QWidget{
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 RadioButton */
 QRadioButton::indicator {
-    border: 3px solid rgb(255, 255, 255);
-	width: 20px;
+    border: 3px solid rgb(52, 59, 72);
+	width: 15px;
 	height: 15px;
 	border-radius: 10px;
-	background-color: rgb(98, 114, 165);
+    background: rgb(44, 49, 60);
 }
 QRadioButton::indicator:hover {
-    border: 3px solid rgb(189, 147, 249);
+    border: 3px solid rgb(58, 66, 81);
 }
 QRadioButton::indicator:checked {
     background: 3px solid rgb(215, 132, 191);
-    border: 3px solid rgb(116, 116, 169);
-}</string>
+	border: 3px solid rgb(52, 59, 72);	
+}
+</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
@@ -109,14 +110,14 @@ QRadioButton::indicator:checked {
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(91, 107, 153);</string>
+         <string notr="true">background-color: rgb(33, 37, 43);</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QWidget" name="widget_menu_body" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(98, 114, 165);</string>
+         <string notr="true">background-color: rgb(33, 37, 43);</string>
         </property>
         <layout class="QVBoxLayout" name="layout_menu_body">
          <property name="spacing">
@@ -277,7 +278,7 @@ QRadioButton::indicator:checked {
                       <string notr="true">/*Стандартное состояние для кнопки*/
 QPushButton {
 	font-size: 12pt;
-	background-color: rgb(98, 114, 165);/* задает цвет фона */
+	background-color:rgb(37, 41, 48);/* задает цвет фона */
 	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
 	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
 
@@ -290,7 +291,7 @@ QPushButton {
 
 /* срабатывает, когда пользователь наводит на элемент мышью */
 QPushButton:hover {
-	background-color: rgb(86, 98, 138);			/* задаем цвет фона */
+	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
 	border: none;												/* без границ */
 	border-left:4px solid rgb(171, 125, 171);	/* С правой красной раницей */
 }
@@ -298,7 +299,7 @@ QPushButton:hover {
 
 /* срабатывает, при нажатии*/
 QPushButton:pressed      {
-	background-color: rgb(189, 146, 251);		/* задаем цвет фона */
+	background-color:rgb(189, 147, 249);		/* задаем цвет фона */
 	border: none;												/* без границ */
 }</string>
                      </property>
@@ -337,7 +338,7 @@ QPushButton:pressed      {
                 <item>
                  <widget class="QWidget" name="widget_data_body" native="true">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(92, 105, 150);</string>
+                   <string notr="true">background-color: rgb(44, 49, 58);</string>
                   </property>
                   <layout class="QVBoxLayout" name="layout_data_body" stretch="0,0,0">
                    <property name="spacing">
@@ -455,7 +456,7 @@ QPushButton:pressed      {
                         <property name="styleSheet">
                          <string notr="true">/*Стандартное состояние для кнопки*/
 QPushButton {
-	background-color: rgb(98, 114, 165);	/* задает цвет фона */
+	background-color: rgb(33, 37, 43);	/* задает цвет фона */
 	border: none;											/* без границ */
 
 		/* задает иконку */
@@ -466,12 +467,12 @@ QPushButton {
 
 /* срабатывает, когда пользователь наводит на элемент мышью */
 QPushButton:hover {
-	background-color: rgb(86, 98, 138);		/* задает цвет фона */
+	background-color: rgb(40, 44, 52);		/* задает цвет фона */
 }
 
 /* срабатывает, при нажатии*/
 QPushButton:pressed      {
-	background-color: rgb(215, 132, 191);	/* задает цвет фона */
+	background-color:rgb(189, 147, 249);	/* задает цвет фона */
 }
 
 </string>
@@ -631,7 +632,7 @@ QCheckBox::indicator:checked {
                         <property name="styleSheet">
                          <string notr="true">/*Стандартное состояние для кнопки*/
 QPushButton {
-	background-color: rgb(98, 114, 165);	/* задает цвет фона */
+	background-color: rgb(33, 37, 43);	/* задает цвет фона */
 	border: none;											/* без границ */
 
 		/* задает иконку */
@@ -642,12 +643,12 @@ QPushButton {
 
 /* срабатывает, когда пользователь наводит на элемент мышью */
 QPushButton:hover {
-	background-color: rgb(86, 98, 138);		/* задает цвет фона */
+	background-color: rgb(40, 44, 52);		/* задает цвет фона */
 }
 
 /* срабатывает, при нажатии*/
 QPushButton:pressed      {
-	background-color: rgb(215, 132, 191);	/* задает цвет фона */
+	background-color:rgb(189, 147, 249);	/* задает цвет фона */
 }
 
 </string>
@@ -877,7 +878,7 @@ QCheckBox::indicator:checked {
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color:rgb(98, 114, 165);</string>
+         <string notr="true">background-color: rgb(33, 37, 43);</string>
         </property>
        </widget>
       </item>

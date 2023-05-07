@@ -2,7 +2,6 @@
   <qresource prefix="checkbox_status_success">
     <file>resource/checkbox_status_success/check_error_red_24dp.svg</file>
     <file>resource/checkbox_status_success/check_ok_grean_24dp.svg</file>
-    <file>resource/checkbox_status_success/check_error_purple_24dp.svg</file>
   </qresource>
   <qresource prefix="shared">
     <file>resource/file_download_white_24dp.svg</file>

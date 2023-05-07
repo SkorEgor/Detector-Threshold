@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui2.ui'
+# Form implementation generated from reading ui file 'gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -277,9 +277,6 @@ class Ui_Dialog(object):
 "    /* задает иконку */\n"
 "    background-image: url(:/menu_titles/resource/menu_titles/menu_data_white_36dp.svg);\n"
 "} ")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/checkbox_status_success/resource/checkbox_status_success/check_error_red_24dp.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_data_header.setIcon(icon1)
         self.pushButton_data_header.setIconSize(QtCore.QSize(0, 0))
         self.pushButton_data_header.setCheckable(True)
         self.pushButton_data_header.setChecked(True)
@@ -348,9 +345,9 @@ class Ui_Dialog(object):
 "    border: none;                                                /* без границ */\n"
 "}")
         self.pushButton_reading_file_no_gas.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/shared/resource/file_download_white_24dp.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_reading_file_no_gas.setIcon(icon2)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/shared/resource/file_download_white_24dp.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_reading_file_no_gas.setIcon(icon1)
         self.pushButton_reading_file_no_gas.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_reading_file_no_gas.setObjectName("pushButton_reading_file_no_gas")
         self.layout_no_gas.addWidget(self.pushButton_reading_file_no_gas)
@@ -420,7 +417,7 @@ class Ui_Dialog(object):
 "    border: none;                                                /* без границ */\n"
 "}")
         self.pushButton_reading_file_with_gas.setText("")
-        self.pushButton_reading_file_with_gas.setIcon(icon2)
+        self.pushButton_reading_file_with_gas.setIcon(icon1)
         self.pushButton_reading_file_with_gas.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_reading_file_with_gas.setObjectName("pushButton_reading_file_with_gas")
         self.layout_with_gas.addWidget(self.pushButton_reading_file_with_gas)
@@ -873,9 +870,9 @@ class Ui_Dialog(object):
 "\n"
 "")
         self.pushButton_close_open_table.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/table/resource/table/table_rows_white_36dp.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_close_open_table.setIcon(icon3)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/table/resource/table/table_rows_white_36dp.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_close_open_table.setIcon(icon2)
         self.pushButton_close_open_table.setIconSize(QtCore.QSize(30, 40))
         self.pushButton_close_open_table.setCheckable(True)
         self.pushButton_close_open_table.setChecked(True)

@@ -6,24 +6,73 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1216</width>
-    <height>678</height>
+    <width>1073</width>
+    <height>622</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Детектирование сигнала - метод Разности</string>
   </property>
   <property name="windowIcon">
    <iconset resource="res.qrc">
     <normaloff>:/application picture/resource/application picture/app_icon-round.png</normaloff>:/application picture/resource/application picture/app_icon-round.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-
-QWidget{
+   <string notr="true">QWidget{
+	background-color: rgb(33, 37, 43);
 	color: rgb(208, 208, 208);
 	font-size: 10pt;
 }
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+ScrollBars */
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(52, 59, 72);
+    width: 8px;
+    margin: 21px 0 21px 0;
+	border-radius: 0px;
+ }
+
+/* Ползунок */
+ QScrollBar::handle:vertical {	
+	background:rgb(255, 255, 255);
+    min-height: 25px;
+	border-radius: 4px
+ }
+/*Нижняя стрелка*/
+ QScrollBar::add-line:vertical {
+     border: none;
+    background: rgb(55, 63, 77);
+     height: 20px;
+
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+/*Верхняя стрелка*/
+ QScrollBar::sub-line:vertical {
+	border: none;
+    background: rgb(55, 63, 77);
+     height: 20px;
+
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+/* Цвета нижних и верхних стрелок */
+ QScrollBar::up-arrow:vertical{
+	border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+     background: rgb(255, 255, 255);
+ }
+QScrollBar::down-arrow:vertical{
+	border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+     background: rgb(255, 255, 255);
+}
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: none;
+ }
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 RadioButton */
 QRadioButton::indicator {
@@ -37,51 +86,78 @@ QRadioButton::indicator:hover {
     border: 3px solid rgb(58, 66, 81);
 }
 QRadioButton::indicator:checked {
-    background: 3px solid rgb(215, 132, 191);
+    background: 3px solid rgb(255, 255, 255);
 	border: 3px solid rgb(52, 59, 72);	
 }
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
-ScrollBars */
- QScrollBar:vertical {
-	border: none;
-    background: rgb(52, 59, 72);
-    width: 8px;
-    margin: 21px 0 21px 0;
-	border-radius: 0px;
- }
- QScrollBar::handle:vertical {	
-	background: rgb(189, 147, 249);
-    min-height: 25px;
-	border-radius: 4px
- }
- QScrollBar::add-line:vertical {
-     border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
-	border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-     subcontrol-position: bottom;
-     subcontrol-origin: margin;
- }
- QScrollBar::sub-line:vertical {
-	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
-	border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-     subcontrol-position: top;
-     subcontrol-origin: margin;
- }
- QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-     background: rgb(160, 126, 212);
- }
+QCheckBox */
+/* Стандартное состояние*/
+QCheckBox{
+	padding-left: 8px;		/* Отступ слева */
+	padding-right: -8px;	/* Отступ справа */
+}
 
- QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-     background: none;
- }
+/* Состояние - не выбран*/
+QCheckBox::indicator:unchecked {
+	/* Выбор картинки*/
+	image: url(:/checkbox_status_success/resource/checkbox_status_success/check_error_red_24dp.svg)
+}
 
-element {
-  --main-bg-color: brown;
+/* Состояние -  выбран*/
+QCheckBox::indicator:checked {
+	/* Выбор картинки*/
+	image: url(:/checkbox_status_success/resource/checkbox_status_success/check_ok_grean_24dp.svg);
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QPushButton */
+/*Стандартное состояние для кнопки*/
+QPushButton {
+	font-size: 12pt;
+	background-color:rgb(37, 41, 48);/* задает цвет фона */
+	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
+	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
+
+	/* задает иконку */
+	background-position: left center;							/* выравнивание иконки */
+	background-repeat: no-repeat;								/* повторять иконку */
+} 
+
+/* срабатывает, когда пользователь наводит на элемент мышью */
+QPushButton:hover {
+	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
+	border: none;												/* без границ */
+	border-left:4px solid rgb(208, 208, 208);	/* С правой красной раницей */
+}
+
+
+/* срабатывает, при нажатии*/
+QPushButton:pressed      {
+	background-color:rgb(170, 170, 170);		/* задаем цвет фона */
+	color: rgb(181, 181, 181);
+	border: none;												/* без границ */
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QLineEdit */
+/* Стиль по умолчанию */
+QLineEdit:enabled{
+	background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */
+	border: 1px solid rgb(255, 255, 255); 
+}
+
+/* Если поле отключено */
+QLineEdit:disabled {
+	background-color:  rgba(67, 74, 88, 0); /* Устанавливаем цвет заливки */
+	border: 1px solid rgb(255, 255, 255); 
+	color: rgb(67, 74, 88);
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QGroupBox */
+QGroupBox{
+	color:rgb(255, 255, 255);	/* задает цвет шрифта */
 }</string>
   </property>
   <property name="sizeGripEnabled">
@@ -90,7 +166,7 @@ element {
   <property name="modal">
    <bool>false</bool>
   </property>
-  <layout class="QHBoxLayout" name="layout_dialog" stretch="0,0">
+  <layout class="QHBoxLayout" name="layout_dialog_main" stretch="0,0">
    <property name="spacing">
     <number>0</number>
    </property>
@@ -121,7 +197,8 @@ element {
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">
+</string>
      </property>
      <layout class="QVBoxLayout" name="layout_menu">
       <property name="spacing">
@@ -157,7 +234,7 @@ element {
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(33, 37, 43);</string>
+         <string notr="true"/>
         </property>
         <layout class="QHBoxLayout" name="layout_menu_title">
          <property name="spacing">
@@ -226,7 +303,7 @@ element {
       <item>
        <widget class="QWidget" name="widget_menu_body" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(33, 37, 43);</string>
+         <string notr="true"/>
         </property>
         <layout class="QVBoxLayout" name="layout_menu_body">
          <property name="spacing">
@@ -285,8 +362,11 @@ element {
               <x>0</x>
               <y>0</y>
               <width>210</width>
-              <height>628</height>
+              <height>572</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
             </property>
             <layout class="QVBoxLayout" name="Layout_scroll_menu">
              <property name="spacing">
@@ -321,6 +401,9 @@ element {
                  <height>0</height>
                 </size>
                </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
                <layout class="QVBoxLayout" name="layout_menu_data">
                 <property name="spacing">
                  <number>0</number>
@@ -338,7 +421,7 @@ element {
                  <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>0</number>
+                 <number>5</number>
                 </property>
                 <item>
                  <widget class="QWidget" name="widget_data_header" native="true">
@@ -399,40 +482,13 @@ element {
                       <bool>false</bool>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">/*Стандартное состояние для кнопки*/
-QPushButton {
-	font-size: 12pt;
-	background-color:rgb(37, 41, 48);/* задает цвет фона */
-	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
-	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
-
-
+                      <string notr="true">QPushButton {
 	/* задает иконку */
 	background-image: url(:/menu_titles/resource/menu_titles/menu_data_white_36dp.svg);
-	background-position: left center;							/* выравнивание иконки */
-	background-repeat: no-repeat;								/* повторять иконку */
-} 
-
-/* срабатывает, когда пользователь наводит на элемент мышью */
-QPushButton:hover {
-	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
-	border: none;												/* без границ */
-	border-left:4px solid rgb(171, 125, 171);	/* С правой красной раницей */
-}
-
-
-/* срабатывает, при нажатии*/
-QPushButton:pressed      {
-	background-color:rgb(189, 147, 249);		/* задаем цвет фона */
-	border: none;												/* без границ */
-}</string>
+} </string>
                      </property>
                      <property name="text">
                       <string>Данные</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="res.qrc">
-                       <normaloff>:/checkbox_status_success/resource/checkbox_status_success/check_error_purple_24dp.svg</normaloff>:/checkbox_status_success/resource/checkbox_status_success/check_error_purple_24dp.svg</iconset>
                      </property>
                      <property name="iconSize">
                       <size>
@@ -466,7 +522,7 @@ QPushButton:pressed      {
                 <item>
                  <widget class="QWidget" name="widget_data_body" native="true">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(44, 49, 58);</string>
+                   <string notr="true"/>
                   </property>
                   <layout class="QVBoxLayout" name="layout_data_body" stretch="0,0,0">
                    <property name="spacing">
@@ -476,13 +532,13 @@ QPushButton:pressed      {
                     <number>5</number>
                    </property>
                    <property name="topMargin">
-                    <number>0</number>
+                    <number>5</number>
                    </property>
                    <property name="rightMargin">
                     <number>5</number>
                    </property>
                    <property name="bottomMargin">
-                    <number>0</number>
+                    <number>5</number>
                    </property>
                    <item>
                     <widget class="QGroupBox" name="groupBox_no_gas">
@@ -495,7 +551,7 @@ QPushButton:pressed      {
                      <property name="maximumSize">
                       <size>
                        <width>16777215</width>
-                       <height>50</height>
+                       <height>16777215</height>
                       </size>
                      </property>
                      <property name="sizeIncrement">
@@ -527,10 +583,7 @@ QPushButton:pressed      {
                       <bool>false</bool>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">QGroupBox{
-	color:rgb(215, 132, 191);	/* задает цвет шрифта */
-
-}</string>
+                      <string notr="true"/>
                      </property>
                      <property name="title">
                       <string>Без исследуемого вещества</string>
@@ -552,13 +605,13 @@ QPushButton:pressed      {
                        <number>5</number>
                       </property>
                       <property name="topMargin">
-                       <number>0</number>
+                       <number>5</number>
                       </property>
                       <property name="rightMargin">
                        <number>5</number>
                       </property>
                       <property name="bottomMargin">
-                       <number>0</number>
+                       <number>5</number>
                       </property>
                       <item>
                        <widget class="QLabel" name="label_text_file_name_no_gas">
@@ -573,6 +626,16 @@ QPushButton:pressed      {
                           <width>16777215</width>
                           <height>30</height>
                          </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
                         </property>
                         <property name="text">
                          <string>Нет файла</string>
@@ -618,31 +681,22 @@ QPushButton:pressed      {
                          <string/>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">/*Стандартное состояние для кнопки*/
-QPushButton {
-	background-color: rgb(33, 37, 43);	/* задает цвет фона */
-	border: none;											/* без границ */
-
-		/* задает иконку */
-	background-image: url(:/shared/resource/file_download_white_24dp.svg);
-	background-position: center;															/* выравнивание иконки */
-	background-repeat: no-repeat;														/* повторять иконку */
-} 
-
-/* срабатывает, когда пользователь наводит на элемент мышью */
-QPushButton:hover {
-	background-color: rgb(40, 44, 52);		/* задает цвет фона */
-}
-
-/* срабатывает, при нажатии*/
-QPushButton:pressed      {
-	background-color:rgb(189, 147, 249);	/* задает цвет фона */
-}
-
-</string>
+                         <string notr="true">QPushButton:hover {
+	border: none;												/* без границ */
+}</string>
                         </property>
                         <property name="text">
                          <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="res.qrc">
+                          <normaloff>:/shared/resource/file_download_white_24dp.svg</normaloff>:/shared/resource/file_download_white_24dp.svg</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>25</width>
+                          <height>25</height>
+                         </size>
                         </property>
                        </widget>
                       </item>
@@ -679,24 +733,7 @@ QPushButton:pressed      {
                          <string/>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">/* Стандартное состояние*/
-QCheckBox{
-	padding-left: 8px;		/* Отступ слева */
-	padding-right: -8px;	/* Отступ справа */
-}
-
-/* Состояние - не выбран*/
-QCheckBox::indicator:unchecked {
-	/* Выбор картинки*/
-	image: url(:/checkbox_status_success/resource/checkbox_status_success/check_error_purple_24dp.svg);
-}
-
-/* Состояние -  выбран*/
-QCheckBox::indicator:checked {
-	/* Выбор картинки*/
-	
-	image: url(:/checkbox_status_success/resource/checkbox_status_success/check_ok_grean_24dp.svg);
-}</string>
+                         <string notr="true"/>
                         </property>
                         <property name="text">
                          <string/>
@@ -749,9 +786,7 @@ QCheckBox::indicator:checked {
                       <bool>false</bool>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">QGroupBox{
-	color:rgb(215, 132, 191);	/* задает цвет шрифта */
-}</string>
+                      <string notr="true"/>
                      </property>
                      <property name="title">
                       <string>С исследуемым веществом</string>
@@ -773,13 +808,13 @@ QCheckBox::indicator:checked {
                        <number>5</number>
                       </property>
                       <property name="topMargin">
-                       <number>0</number>
+                       <number>5</number>
                       </property>
                       <property name="rightMargin">
                        <number>5</number>
                       </property>
                       <property name="bottomMargin">
-                       <number>0</number>
+                       <number>5</number>
                       </property>
                       <item>
                        <widget class="QLabel" name="label_text_file_name_with_gas">
@@ -794,6 +829,16 @@ QCheckBox::indicator:checked {
                           <width>16777215</width>
                           <height>30</height>
                          </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
                         </property>
                         <property name="text">
                          <string>Нет файла</string>
@@ -830,31 +875,22 @@ QCheckBox::indicator:checked {
                          <cursorShape>PointingHandCursor</cursorShape>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">/*Стандартное состояние для кнопки*/
-QPushButton {
-	background-color: rgb(33, 37, 43);	/* задает цвет фона */
-	border: none;											/* без границ */
-
-		/* задает иконку */
-	background-image: url(:/shared/resource/file_download_white_24dp.svg);
-	background-position: center;															/* выравнивание иконки */
-	background-repeat: no-repeat;														/* повторять иконку */
-} 
-
-/* срабатывает, когда пользователь наводит на элемент мышью */
-QPushButton:hover {
-	background-color: rgb(40, 44, 52);		/* задает цвет фона */
-}
-
-/* срабатывает, при нажатии*/
-QPushButton:pressed      {
-	background-color:rgb(189, 147, 249);	/* задает цвет фона */
-}
-
-</string>
+                         <string notr="true">QPushButton:hover {
+	border: none;												/* без границ */
+}</string>
                         </property>
                         <property name="text">
                          <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="res.qrc">
+                          <normaloff>:/shared/resource/file_download_white_24dp.svg</normaloff>:/shared/resource/file_download_white_24dp.svg</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>25</width>
+                          <height>25</height>
+                         </size>
                         </property>
                        </widget>
                       </item>
@@ -882,24 +918,7 @@ QPushButton:pressed      {
                          </size>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">/* Стандартное состояние*/
-QCheckBox{
-	padding-left: 8px;		/* Отступ слева */
-	padding-right: -8px;	/* Отступ справа */
-}
-
-/* Состояние - не выбран*/
-QCheckBox::indicator:unchecked {
-	/* Выбор картинки*/
-	image: url(:/checkbox_status_success/resource/checkbox_status_success/check_error_purple_24dp.svg);
-}
-
-/* Состояние -  выбран*/
-QCheckBox::indicator:checked {
-	/* Выбор картинки*/
-	
-	image: url(:/checkbox_status_success/resource/checkbox_status_success/check_ok_grean_24dp.svg);
-}</string>
+                         <string notr="true"/>
                         </property>
                         <property name="text">
                          <string/>
@@ -920,7 +939,7 @@ QCheckBox::indicator:checked {
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
-                       <height>90</height>
+                       <height>100</height>
                       </size>
                      </property>
                      <property name="maximumSize">
@@ -958,9 +977,7 @@ QCheckBox::indicator:checked {
                       <bool>false</bool>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">QGroupBox{
-	color:rgb(215, 132, 191);	/* задает цвет шрифта */
-}</string>
+                      <string notr="true"/>
                      </property>
                      <property name="title">
                       <string>Диапазон частот</string>
@@ -982,13 +999,13 @@ QCheckBox::indicator:checked {
                        <number>5</number>
                       </property>
                       <property name="topMargin">
-                       <number>0</number>
+                       <number>5</number>
                       </property>
                       <property name="rightMargin">
                        <number>5</number>
                       </property>
                       <property name="bottomMargin">
-                       <number>0</number>
+                       <number>5</number>
                       </property>
                       <item>
                        <widget class="QRadioButton" name="radioButton_all_range">
@@ -998,8 +1015,18 @@ QCheckBox::indicator:checked {
                           <height>30</height>
                          </size>
                         </property>
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
                         <property name="cursor">
                          <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
                         </property>
                         <property name="text">
                          <string>Весь</string>
@@ -1017,8 +1044,18 @@ QCheckBox::indicator:checked {
                           <height>30</height>
                          </size>
                         </property>
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
                         <property name="cursor">
                          <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
                         </property>
                         <property name="text">
                          <string>Некоторые</string>
@@ -1041,6 +1078,9 @@ QCheckBox::indicator:checked {
                           <width>0</width>
                           <height>30</height>
                          </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
                         </property>
                         <layout class="QHBoxLayout" name="layout_start_range">
                          <property name="spacing">
@@ -1075,6 +1115,13 @@ QCheckBox::indicator:checked {
                              <height>30</height>
                             </size>
                            </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>10</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>От: </string>
                            </property>
@@ -1103,19 +1150,15 @@ QCheckBox::indicator:checked {
                              <height>30</height>
                             </size>
                            </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>10</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
                            <property name="styleSheet">
-                            <string notr="true">/* Стиль по умолчанию */
-QLineEdit:enabled{
-	background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */
-	border: 2px solid;
-}
-
-/* Если поле отключено */
-QLineEdit:disabled {
-	background-color:  rgba(67, 74, 88, 0); /* Устанавливаем цвет заливки */
-	border: 1px solid rgb(255, 255, 255); 
-	color: rgb(67, 74, 88);
-}</string>
+                            <string notr="true"/>
                            </property>
                            <property name="text">
                             <string notr="true">22308</string>
@@ -1145,6 +1188,13 @@ QLineEdit:disabled {
                              <height>30</height>
                             </size>
                            </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>10</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
                            <property name="text">
                             <string> [МГц]</string>
                            </property>
@@ -1169,6 +1219,9 @@ QLineEdit:disabled {
                           <width>0</width>
                           <height>30</height>
                          </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
                         </property>
                         <layout class="QHBoxLayout" name="layout_end_range">
                          <property name="spacing">
@@ -1203,6 +1256,16 @@ QLineEdit:disabled {
                              <height>30</height>
                             </size>
                            </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>10</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true"/>
+                           </property>
                            <property name="text">
                             <string>До: </string>
                            </property>
@@ -1231,19 +1294,15 @@ QLineEdit:disabled {
                              <height>30</height>
                             </size>
                            </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>10</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
                            <property name="styleSheet">
-                            <string notr="true">/* Стиль по умолчанию */
-QLineEdit:enabled{
-	background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */
-	border: 2px solid;
-}
-
-/* Если поле отключено */
-QLineEdit:disabled {
-	background-color:  rgba(67, 74, 88, 0); /* Устанавливаем цвет заливки */
-	border: 1px solid rgb(255, 255, 255); 
-	color: rgb(67, 74, 88);
-}</string>
+                            <string notr="true"/>
                            </property>
                            <property name="text">
                             <string notr="true">22342</string>
@@ -1272,6 +1331,16 @@ QLineEdit:disabled {
                              <width>0</width>
                              <height>30</height>
                             </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>10</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true"/>
                            </property>
                            <property name="text">
                             <string> [МГц]</string>
@@ -1307,6 +1376,9 @@ QLineEdit:disabled {
                  <height>0</height>
                 </size>
                </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
                <layout class="QVBoxLayout" name="layout_menu_difference">
                 <property name="spacing">
                  <number>0</number>
@@ -1324,7 +1396,7 @@ QLineEdit:disabled {
                  <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>0</number>
+                 <number>5</number>
                 </property>
                 <item>
                  <widget class="QWidget" name="widget_difference_header" native="true">
@@ -1385,34 +1457,11 @@ QLineEdit:disabled {
                       <bool>false</bool>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">/*Стандартное состояние для кнопки*/
-QPushButton {
-	font-size: 12pt;
-	background-color:rgb(37, 41, 48);/* задает цвет фона */
-	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
-	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
-
-
+                      <string notr="true">QPushButton {
 	/* задает иконку */
-	
 	background-image: url(:/menu_titles/resource/menu_titles/menu_minus_white_36dp.svg);
-	background-position: left center;							/* выравнивание иконки */
-	background-repeat: no-repeat;								/* повторять иконку */
 } 
-
-/* срабатывает, когда пользователь наводит на элемент мышью */
-QPushButton:hover {
-	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
-	border: none;												/* без границ */
-	border-left:4px solid rgb(171, 125, 171);	/* С правой красной раницей */
-}
-
-
-/* срабатывает, при нажатии*/
-QPushButton:pressed      {
-	background-color:rgb(189, 147, 249);		/* задаем цвет фона */
-	border: none;												/* без границ */
-}</string>
+</string>
                      </property>
                      <property name="text">
                       <string>Разница</string>
@@ -1449,7 +1498,7 @@ QPushButton:pressed      {
                 <item>
                  <widget class="QWidget" name="widget_difference_body" native="true">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(44, 49, 58);</string>
+                   <string notr="true"/>
                   </property>
                   <layout class="QVBoxLayout" name="layout_difference_body" stretch="0">
                    <property name="spacing">
@@ -1459,13 +1508,13 @@ QPushButton:pressed      {
                     <number>5</number>
                    </property>
                    <property name="topMargin">
-                    <number>0</number>
+                    <number>5</number>
                    </property>
                    <property name="rightMargin">
                     <number>5</number>
                    </property>
                    <property name="bottomMargin">
-                    <number>0</number>
+                    <number>5</number>
                    </property>
                    <item>
                     <widget class="QGroupBox" name="groupBox_threshold">
@@ -1478,7 +1527,7 @@ QPushButton:pressed      {
                      <property name="maximumSize">
                       <size>
                        <width>16777215</width>
-                       <height>50</height>
+                       <height>16777215</height>
                       </size>
                      </property>
                      <property name="sizeIncrement">
@@ -1510,10 +1559,7 @@ QPushButton:pressed      {
                       <bool>false</bool>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">QGroupBox{
-	color:rgb(215, 132, 191);	/* задает цвет шрифта */
-
-}</string>
+                      <string notr="true"/>
                      </property>
                      <property name="title">
                       <string>Пороговое значение</string>
@@ -1535,13 +1581,13 @@ QPushButton:pressed      {
                        <number>5</number>
                       </property>
                       <property name="topMargin">
-                       <number>0</number>
+                       <number>5</number>
                       </property>
                       <property name="rightMargin">
                        <number>5</number>
                       </property>
                       <property name="bottomMargin">
-                       <number>0</number>
+                       <number>5</number>
                       </property>
                       <item>
                        <widget class="QLineEdit" name="lineEdit_threshold">
@@ -1566,19 +1612,15 @@ QPushButton:pressed      {
                           <height>30</height>
                          </size>
                         </property>
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
                         <property name="styleSheet">
-                         <string notr="true">/* Стиль по умолчанию */
-QLineEdit:enabled{
-	background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */
-	border: 1px solid rgb(255, 255, 255);
-}
-
-/* Если поле отключено */
-QLineEdit:disabled {
-	background-color:  rgba(67, 74, 88, 0); /* Устанавливаем цвет заливки */
-	border: 1px solid rgb(255, 255, 255); 
-	color: rgb(67, 74, 88);
-}</string>
+                         <string notr="true"/>
                         </property>
                         <property name="text">
                          <string notr="true">22342</string>
@@ -1608,11 +1650,31 @@ QLineEdit:disabled {
                           <height>30</height>
                          </size>
                         </property>
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
+                          <underline>false</underline>
+                          <strikeout>false</strikeout>
+                          <kerning>true</kerning>
+                         </font>
+                        </property>
+                        <property name="autoFillBackground">
+                         <bool>false</bool>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
+                        </property>
                         <property name="text">
                          <string> [%*max]</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
+                        </property>
+                        <property name="wordWrap">
+                         <bool>false</bool>
                         </property>
                        </widget>
                       </item>
@@ -1649,23 +1711,11 @@ QLineEdit:disabled {
                          <string/>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">/* Стандартное состояние*/
-QCheckBox{
-	padding-left: 8px;		/* Отступ слева */
-	padding-right: -8px;	/* Отступ справа */
-}
-
-
-/* Состояние - не выбран*/
-QCheckBox::indicator:unchecked {
-	/* Выбор картинки*/
-	image: url(:/checkbox_status_success/resource/checkbox_status_success/check_error_purple_24dp.svg);
-}
-
-/* Состояние -  выбран*/
+                         <string notr="true">/* Состояние -  выбран*/
 QCheckBox::indicator:checked {
 	/* Выбор картинки*/
-image: none;
+	
+	image: none;
 }</string>
                         </property>
                         <property name="text">
@@ -1739,33 +1789,11 @@ image: none;
                 <bool>false</bool>
                </property>
                <property name="styleSheet">
-                <string notr="true">/*Стандартное состояние для кнопки*/
-QPushButton {
-	font-size: 12pt;
-	background-color:rgb(37, 41, 48);/* задает цвет фона */
-	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
-	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
-
-
+                <string notr="true">QPushButton {
 	/* задает иконку */
+	
 	background-image: url(:/menu_titles/resource/menu_titles/done_white_36dp.svg);
-	background-position: left center;							/* выравнивание иконки */
-	background-repeat: no-repeat;								/* повторять иконку */
-} 
-
-/* срабатывает, когда пользователь наводит на элемент мышью */
-QPushButton:hover {
-	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
-	border: none;												/* без границ */
-	border-left:4px solid rgb(171, 125, 171);	/* С правой красной раницей */
-}
-
-
-/* срабатывает, при нажатии*/
-QPushButton:pressed      {
-	background-color:rgb(189, 147, 249);		/* задаем цвет фона */
-	border: none;												/* без границ */
-}</string>
+} </string>
                </property>
                <property name="text">
                 <string>Вычислить</string>
@@ -1828,26 +1856,10 @@ QPushButton:pressed      {
        <number>0</number>
       </property>
       <item>
-       <widget class="QWidget" name="widget_main_header" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(33, 37, 43);</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QWidget" name="widget_main_body" native="true">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <layout class="QHBoxLayout" name="layout__main_body" stretch="1,0">
          <property name="spacing">
           <number>0</number>
@@ -1867,7 +1879,10 @@ QPushButton:pressed      {
          <item>
           <widget class="QWidget" name="widget_plotting" native="true">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(40, 44, 52);</string>
+            <string notr="true">background-color: rgb(167, 167, 167);
+background-color: rgb(124, 124, 124);
+background-color: rgb(255, 255, 255);
+background-color: rgb(240, 240, 240);</string>
            </property>
            <layout class="QVBoxLayout" name="plotLayout">
             <property name="spacing">
@@ -1912,7 +1927,9 @@ QPushButton:pressed      {
             <item>
              <widget class="QWidget" name="widget_close_open_table" native="true">
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(40, 44, 52);</string>
+               <string notr="true">	background-color: rgb(33, 37, 43);
+background-color: rgb(255, 255, 255);
+background-color: rgb(240, 240, 240);</string>
               </property>
               <layout class="QHBoxLayout" name="layout_close_open_table">
                <property name="spacing">
@@ -1935,27 +1952,26 @@ QPushButton:pressed      {
                  <property name="styleSheet">
                   <string notr="true">/*Стандартное состояние для кнопки*/
 QPushButton {
-	background-color: rgb(33, 37, 43);	/* задает цвет фона */
+	
+	background-color: rgb(33, 37, 43);
 
+	border-left:1px solid rgb(130, 135, 144);
+	border-top:1px solid rgb(130, 135, 144);
+	border-bottom:1px solid rgb(130, 135, 144);
+	border-right:1px solid rgb(33, 37, 43);
 
-		/* задает иконку */
-	background-image: url(:/table/resource/table/table_rows_white_36dp.svg);
-	background-position: center;															/* выравнивание иконки */
-	background-repeat: no-repeat;														/* повторять иконку */
-
- border: solid #4CAF50; /* Green */
-border-top-left-radius:7px;
-border-bottom-left-radius:7px;
+	border-top-left-radius:7px;
+	border-bottom-left-radius:7px;
 } 
 
 /* срабатывает, когда пользователь наводит на элемент мышью */
 QPushButton:hover {
-	background-color: rgb(101, 113, 131);		/* задает цвет фона */
+	
+	background-color: rgb(73, 82, 95);
 }
 
 /* срабатывает, при нажатии*/
 QPushButton:pressed      {
-	background-color:rgb(189, 147, 249);	/* задает цвет фона */
 }
 
 </string>
@@ -1987,7 +2003,7 @@ QPushButton:pressed      {
             <item>
              <widget class="QWidget" name="widget_table" native="true">
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(37, 41, 48);</string>
+               <string notr="true"/>
               </property>
               <layout class="QVBoxLayout" name="layout_table">
                <property name="spacing">
@@ -2006,7 +2022,14 @@ QPushButton:pressed      {
                 <number>0</number>
                </property>
                <item>
-                <widget class="QTableWidget" name="tableWidget_frequency_absorption"/>
+                <widget class="QTableWidget" name="tableWidget_frequency_absorption">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                </widget>
                </item>
                <item>
                 <widget class="QWidget" name="widget_bottom" native="true">
@@ -2023,7 +2046,7 @@ QPushButton:pressed      {
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color: rgb(44, 49, 58);</string>
+                  <string notr="true"/>
                  </property>
                  <layout class="QVBoxLayout" name="layout_bottom">
                   <property name="spacing">
@@ -2057,6 +2080,9 @@ QPushButton:pressed      {
                       <width>0</width>
                       <height>30</height>
                      </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
                     </property>
                     <property name="text">
                      <string/>
@@ -2106,9 +2132,7 @@ QPushButton:pressed      {
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">QGroupBox{
-	color:rgb(215, 132, 191);	/* задает цвет шрифта */
-}</string>
+                     <string notr="true"/>
                     </property>
                     <property name="title">
                      <string>Окно просмотра</string>
@@ -2163,6 +2187,9 @@ QPushButton:pressed      {
                          <height>30</height>
                         </size>
                        </property>
+                       <property name="styleSheet">
+                        <string notr="true"/>
+                       </property>
                        <layout class="QHBoxLayout" name="layout_start_range_8">
                         <property name="spacing">
                          <number>0</number>
@@ -2206,12 +2233,7 @@ QPushButton:pressed      {
                            </size>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">/* Стиль по умолчанию */
-QLineEdit{
-	background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */
-	border: 1px solid rgb(255, 255, 255);
-}
-</string>
+                           <string notr="true"/>
                           </property>
                           <property name="text">
                            <string notr="true">10</string>
@@ -2240,6 +2262,9 @@ QLineEdit{
                             <width>0</width>
                             <height>30</height>
                            </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
                           </property>
                           <property name="text">
                            <string> [МГц]</string>
@@ -2293,33 +2318,10 @@ QLineEdit{
                      <bool>false</bool>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">/*Стандартное состояние для кнопки*/
-QPushButton {
-	font-size: 12pt;
-	background-color:rgb(37, 41, 48);/* задает цвет фона */
-	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
-	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
-
-
+                     <string notr="true">QPushButton {
 	/* задает иконку */
 	background-image: url(:/table/resource/table/save_white_36dp.svg);
-	background-position: left center;							/* выравнивание иконки */
-	background-repeat: no-repeat;								/* повторять иконку */
-} 
-
-/* срабатывает, когда пользователь наводит на элемент мышью */
-QPushButton:hover {
-	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
-	border: none;												/* без границ */
-	border-left:4px solid rgb(171, 125, 171);	/* С правой красной раницей */
-}
-
-
-/* срабатывает, при нажатии*/
-QPushButton:pressed      {
-	background-color:rgb(189, 147, 249);		/* задаем цвет фона */
-	border: none;												/* без границ */
-}</string>
+} </string>
                     </property>
                     <property name="text">
                      <string>Сохранить в файл</string>

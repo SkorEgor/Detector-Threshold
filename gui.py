@@ -804,6 +804,35 @@ class Ui_Dialog(object):
         self.Layout_scroll_menu.addWidget(self.widget_difference)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.Layout_scroll_menu.addItem(spacerItem)
+        self.pushButton_close_open_table = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_close_open_table.sizePolicy().hasHeightForWidth())
+        self.pushButton_close_open_table.setSizePolicy(sizePolicy)
+        self.pushButton_close_open_table.setMinimumSize(QtCore.QSize(0, 35))
+        self.pushButton_close_open_table.setMaximumSize(QtCore.QSize(16777215, 35))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pushButton_close_open_table.setFont(font)
+        self.pushButton_close_open_table.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_close_open_table.setAccessibleDescription("")
+        self.pushButton_close_open_table.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.pushButton_close_open_table.setAutoFillBackground(False)
+        self.pushButton_close_open_table.setStyleSheet("QPushButton {\n"
+"    /* задает иконку */\n"
+"    \n"
+"    background-image: url(:/table/resource/table/table_rows_white_36dp.svg);\n"
+"} ")
+        self.pushButton_close_open_table.setIconSize(QtCore.QSize(0, 0))
+        self.pushButton_close_open_table.setCheckable(True)
+        self.pushButton_close_open_table.setChecked(True)
+        self.pushButton_close_open_table.setAutoRepeat(False)
+        self.pushButton_close_open_table.setAutoExclusive(False)
+        self.pushButton_close_open_table.setDefault(False)
+        self.pushButton_close_open_table.setFlat(False)
+        self.pushButton_close_open_table.setObjectName("pushButton_close_open_table")
+        self.Layout_scroll_menu.addWidget(self.pushButton_close_open_table)
         self.pushButton_menu_calculate = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -869,51 +898,6 @@ class Ui_Dialog(object):
         self.layout_right.setContentsMargins(0, 0, 0, 0)
         self.layout_right.setSpacing(0)
         self.layout_right.setObjectName("layout_right")
-        self.widget_close_open_table = QtWidgets.QWidget(self.widget_right)
-        self.widget_close_open_table.setStyleSheet("    background-color: rgb(33, 37, 43);\n"
-"background-color: rgb(255, 255, 255);\n"
-"background-color: rgb(240, 240, 240);")
-        self.widget_close_open_table.setObjectName("widget_close_open_table")
-        self.layout_close_open_table = QtWidgets.QHBoxLayout(self.widget_close_open_table)
-        self.layout_close_open_table.setContentsMargins(0, 0, 0, 0)
-        self.layout_close_open_table.setSpacing(0)
-        self.layout_close_open_table.setObjectName("layout_close_open_table")
-        self.pushButton_close_open_table = QtWidgets.QPushButton(self.widget_close_open_table)
-        self.pushButton_close_open_table.setStyleSheet("/*Стандартное состояние для кнопки*/\n"
-"QPushButton {\n"
-"    \n"
-"    background-color: rgb(33, 37, 43);\n"
-"\n"
-"    border-left:1px solid rgb(130, 135, 144);\n"
-"    border-top:1px solid rgb(130, 135, 144);\n"
-"    border-bottom:1px solid rgb(130, 135, 144);\n"
-"    border-right:1px solid rgb(33, 37, 43);\n"
-"\n"
-"    border-top-left-radius:7px;\n"
-"    border-bottom-left-radius:7px;\n"
-"} \n"
-"\n"
-"/* срабатывает, когда пользователь наводит на элемент мышью */\n"
-"QPushButton:hover {\n"
-"    \n"
-"    background-color: rgb(73, 82, 95);\n"
-"}\n"
-"\n"
-"/* срабатывает, при нажатии*/\n"
-"QPushButton:pressed      {\n"
-"}\n"
-"\n"
-"")
-        self.pushButton_close_open_table.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/table/resource/table/table_rows_white_36dp.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_close_open_table.setIcon(icon2)
-        self.pushButton_close_open_table.setIconSize(QtCore.QSize(30, 40))
-        self.pushButton_close_open_table.setCheckable(True)
-        self.pushButton_close_open_table.setChecked(True)
-        self.pushButton_close_open_table.setObjectName("pushButton_close_open_table")
-        self.layout_close_open_table.addWidget(self.pushButton_close_open_table)
-        self.layout_right.addWidget(self.widget_close_open_table)
         self.widget_table = QtWidgets.QWidget(self.widget_right)
         self.widget_table.setStyleSheet("/* Состояние - не выбран*/\n"
 "QCheckBox::indicator:unchecked {\n"
@@ -1103,7 +1087,7 @@ class Ui_Dialog(object):
         self.radioButton_selected_range.toggled['bool'].connect(self.lineEdit_start_range.setEnabled) # type: ignore
         self.radioButton_selected_range.toggled['bool'].connect(self.lineEdit_end_range.setEnabled) # type: ignore
         self.pushButton_difference_header.clicked['bool'].connect(self.widget_difference_body.setVisible) # type: ignore
-        self.pushButton_close_open_table.clicked['bool'].connect(self.widget_table.setVisible) # type: ignore
+        self.pushButton_close_open_table.clicked['bool'].connect(self.widget_right.setVisible) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
@@ -1125,6 +1109,7 @@ class Ui_Dialog(object):
         self.pushButton_difference_header.setText(_translate("Dialog", "Разница"))
         self.groupBox_threshold.setTitle(_translate("Dialog", "Пороговое значение"))
         self.label_text_units_threshold.setText(_translate("Dialog", " [%*max]"))
+        self.pushButton_close_open_table.setText(_translate("Dialog", "Таблица"))
         self.pushButton_menu_calculate.setText(_translate("Dialog", "Вычислить"))
         self.tableWidget_frequency_absorption.setSortingEnabled(False)
         self.groupBox_window_view.setTitle(_translate("Dialog", "Окно просмотра"))

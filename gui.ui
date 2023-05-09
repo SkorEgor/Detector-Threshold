@@ -1792,6 +1792,79 @@ QTableCornerButton::section {background-color: rgb(33, 37, 43); }
               </spacer>
              </item>
              <item>
+              <widget class="QPushButton" name="pushButton_close_open_table">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="accessibleDescription">
+                <string/>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+	/* задает иконку */
+	
+	background-image: url(:/table/resource/table/table_rows_white_36dp.svg);
+} </string>
+               </property>
+               <property name="text">
+                <string>Таблица</string>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+               <property name="autoRepeat">
+                <bool>false</bool>
+               </property>
+               <property name="autoExclusive">
+                <bool>false</bool>
+               </property>
+               <property name="default">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="pushButton_menu_calculate">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -1964,82 +2037,6 @@ background-color: rgb(240, 240, 240);</string>
             <property name="bottomMargin">
              <number>0</number>
             </property>
-            <item>
-             <widget class="QWidget" name="widget_close_open_table" native="true">
-              <property name="styleSheet">
-               <string notr="true">	background-color: rgb(33, 37, 43);
-background-color: rgb(255, 255, 255);
-background-color: rgb(240, 240, 240);</string>
-              </property>
-              <layout class="QHBoxLayout" name="layout_close_open_table">
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QPushButton" name="pushButton_close_open_table">
-                 <property name="styleSheet">
-                  <string notr="true">/*Стандартное состояние для кнопки*/
-QPushButton {
-	
-	background-color: rgb(33, 37, 43);
-
-	border-left:1px solid rgb(130, 135, 144);
-	border-top:1px solid rgb(130, 135, 144);
-	border-bottom:1px solid rgb(130, 135, 144);
-	border-right:1px solid rgb(33, 37, 43);
-
-	border-top-left-radius:7px;
-	border-bottom-left-radius:7px;
-} 
-
-/* срабатывает, когда пользователь наводит на элемент мышью */
-QPushButton:hover {
-	
-	background-color: rgb(73, 82, 95);
-}
-
-/* срабатывает, при нажатии*/
-QPushButton:pressed      {
-}
-
-</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="res.qrc">
-                   <normaloff>:/table/resource/table/table_rows_white_36dp.svg</normaloff>:/table/resource/table/table_rows_white_36dp.svg</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>30</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                 <property name="checkable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
             <item>
              <widget class="QWidget" name="widget_table" native="true">
               <property name="styleSheet">
@@ -2585,16 +2582,16 @@ QCheckBox::indicator:checked {
   <connection>
    <sender>pushButton_close_open_table</sender>
    <signal>clicked(bool)</signal>
-   <receiver>widget_table</receiver>
+   <receiver>widget_right</receiver>
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>816</x>
-     <y>331</y>
+     <x>202</x>
+     <y>568</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1072</x>
-     <y>185</y>
+     <x>1152</x>
+     <y>291</y>
     </hint>
    </hints>
   </connection>

@@ -1,6 +1,5 @@
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
-from gui import Ui_Dialog
+from PyQt5 import QtWidgets
 import ctypes
 
 from gui_logic import GuiProgram

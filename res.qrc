@@ -19,4 +19,9 @@
     <file>resource/application picture/app_icon.png</file>
     <file>resource/application picture/app_icon-round.png</file>
   </qresource>
+  <qresource prefix="table_checkbox">
+    <file>resource/table_checkbox/var2_color/mixed_white_24dp.svg</file>
+    <file>resource/table_checkbox/var2_color/no_red_24dp.svg</file>
+    <file>resource/table_checkbox/var2_color/yes_green_24dp.svg</file>
+  </qresource>
 </RCC>

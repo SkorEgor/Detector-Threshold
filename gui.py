@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1073, 622)
+        Dialog.resize(1281, 584)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/application picture/resource/application picture/app_icon-round.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Dialog.setWindowIcon(icon)
@@ -158,7 +158,47 @@ class Ui_Dialog(object):
 "QGroupBox */\n"
 "QGroupBox{\n"
 "    color:rgb(255, 255, 255);    /* задает цвет шрифта */\n"
-"}")
+"}\n"
+"/* ///////////////////////////////////////////////////////////////////////////////////////////////// */\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"QTableWidget */\n"
+"QTableWidget {    \n"
+"    gridline-color: rgb(136, 136, 136);\n"
+"    border-bottom: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::item{\n"
+"\n"
+"    gridline-color: rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::item:selected{\n"
+"    background-color: rgb(72, 81, 94);\n"
+"}\n"
+"QHeaderView::section{\n"
+"    background-color: rgb(33, 37, 43);\n"
+"    max-width: 30px;\n"
+"    border: 1px solid rgb(44, 49, 58);\n"
+"    border-style: none;\n"
+"    border-bottom: 1px solid rgb(44, 49, 60);\n"
+"    border-right: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::horizontalHeader {    \n"
+"    background-color: rgb(33, 37, 43);\n"
+"}\n"
+"QHeaderView::section:horizontal\n"
+"{\n"
+"\n"
+"    border: 1px solid rgb(33, 37, 43);\n"
+"    background-color: rgb(33, 37, 43);\n"
+"    padding: 3px;\n"
+"    border-top-left-radius: 7px;\n"
+"    border-top-right-radius: 7px;\n"
+"}\n"
+"QHeaderView::section:vertical\n"
+"{\n"
+"    border: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+"QTableCornerButton::section {background-color: rgb(33, 37, 43); }\n"
+"/* ///////////////////////////////////////////////////////////////////////////////////////////////// */")
         Dialog.setSizeGripEnabled(False)
         Dialog.setModal(False)
         self.layout_dialog_main = QtWidgets.QHBoxLayout(Dialog)
@@ -166,17 +206,17 @@ class Ui_Dialog(object):
         self.layout_dialog_main.setSpacing(0)
         self.layout_dialog_main.setObjectName("layout_dialog_main")
         self.widget_menu = QtWidgets.QWidget(Dialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget_menu.sizePolicy().hasHeightForWidth())
         self.widget_menu.setSizePolicy(sizePolicy)
+        self.widget_menu.setMinimumSize(QtCore.QSize(210, 0))
         self.widget_menu.setMaximumSize(QtCore.QSize(210, 16777215))
-        self.widget_menu.setStyleSheet("\n"
-"")
+        self.widget_menu.setStyleSheet("")
         self.widget_menu.setObjectName("widget_menu")
         self.layout_menu = QtWidgets.QVBoxLayout(self.widget_menu)
-        self.layout_menu.setSizeConstraint(QtWidgets.QLayout.SetMinimumSize)
+        self.layout_menu.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.layout_menu.setContentsMargins(0, 0, 0, 0)
         self.layout_menu.setSpacing(0)
         self.layout_menu.setObjectName("layout_menu")
@@ -229,7 +269,7 @@ class Ui_Dialog(object):
         self.scrollArea_menu_body.setAlignment(QtCore.Qt.AlignCenter)
         self.scrollArea_menu_body.setObjectName("scrollArea_menu_body")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 210, 572))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 210, 534))
         self.scrollAreaWidgetContents.setStyleSheet("")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.Layout_scroll_menu = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -713,7 +753,7 @@ class Ui_Dialog(object):
         font.setWeight(50)
         self.lineEdit_threshold.setFont(font)
         self.lineEdit_threshold.setStyleSheet("")
-        self.lineEdit_threshold.setText("22342")
+        self.lineEdit_threshold.setText("30")
         self.lineEdit_threshold.setMaxLength(10)
         self.lineEdit_threshold.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_threshold.setDragEnabled(False)
@@ -753,12 +793,7 @@ class Ui_Dialog(object):
         self.checkBox_status_threshold.setWhatsThis("")
         self.checkBox_status_threshold.setAccessibleName("")
         self.checkBox_status_threshold.setAccessibleDescription("")
-        self.checkBox_status_threshold.setStyleSheet("/* Состояние -  выбран*/\n"
-"QCheckBox::indicator:checked {\n"
-"    /* Выбор картинки*/\n"
-"    \n"
-"    image: none;\n"
-"}")
+        self.checkBox_status_threshold.setStyleSheet("")
         self.checkBox_status_threshold.setText("")
         self.checkBox_status_threshold.setChecked(True)
         self.checkBox_status_threshold.setTristate(False)
@@ -880,18 +915,41 @@ class Ui_Dialog(object):
         self.layout_close_open_table.addWidget(self.pushButton_close_open_table)
         self.layout_right.addWidget(self.widget_close_open_table)
         self.widget_table = QtWidgets.QWidget(self.widget_right)
-        self.widget_table.setStyleSheet("")
+        self.widget_table.setStyleSheet("/* Состояние - не выбран*/\n"
+"QCheckBox::indicator:unchecked {\n"
+"    /* Выбор картинки*/\n"
+"    image: url(:/table_checkbox/resource/table_checkbox/var2_color/no_red_24dp.svg);\n"
+"}\n"
+"\n"
+"/* Состояние -  выбран*/\n"
+"QCheckBox::indicator:checked {\n"
+"    /* Выбор картинки*/\n"
+"    image: url(:/table_checkbox/resource/table_checkbox/var2_color/yes_green_24dp.svg);\n"
+"}\n"
+"")
         self.widget_table.setObjectName("widget_table")
         self.layout_table = QtWidgets.QVBoxLayout(self.widget_table)
         self.layout_table.setContentsMargins(0, 0, 0, 0)
         self.layout_table.setSpacing(0)
         self.layout_table.setObjectName("layout_table")
         self.tableWidget_frequency_absorption = QtWidgets.QTableWidget(self.widget_table)
-        self.tableWidget_frequency_absorption.setStyleSheet("")
+        self.tableWidget_frequency_absorption.setStyleSheet("background-color: rgb(33, 37, 43);")
         self.tableWidget_frequency_absorption.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.tableWidget_frequency_absorption.setObjectName("tableWidget_frequency_absorption")
-        self.tableWidget_frequency_absorption.setColumnCount(0)
+        self.tableWidget_frequency_absorption.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.tableWidget_frequency_absorption.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.EditKeyPressed)
+        self.tableWidget_frequency_absorption.setTabKeyNavigation(False)
+        self.tableWidget_frequency_absorption.setProperty("showDropIndicator", False)
+        self.tableWidget_frequency_absorption.setDragDropOverwriteMode(False)
+        self.tableWidget_frequency_absorption.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableWidget_frequency_absorption.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableWidget_frequency_absorption.setIconSize(QtCore.QSize(0, 0))
+        self.tableWidget_frequency_absorption.setShowGrid(True)
         self.tableWidget_frequency_absorption.setRowCount(0)
+        self.tableWidget_frequency_absorption.setColumnCount(0)
+        self.tableWidget_frequency_absorption.setObjectName("tableWidget_frequency_absorption")
+        self.tableWidget_frequency_absorption.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget_frequency_absorption.horizontalHeader().setSortIndicatorShown(False)
+        self.tableWidget_frequency_absorption.horizontalHeader().setStretchLastSection(False)
         self.layout_table.addWidget(self.tableWidget_frequency_absorption)
         self.widget_bottom = QtWidgets.QWidget(self.widget_table)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -985,6 +1043,24 @@ class Ui_Dialog(object):
         self.label_text_units_window_width.setAlignment(QtCore.Qt.AlignCenter)
         self.label_text_units_window_width.setObjectName("label_text_units_window_width")
         self.layout_start_range_8.addWidget(self.label_text_units_window_width)
+        self.checkBox_status_window_width = QtWidgets.QCheckBox(self.widget_input_window_view)
+        self.checkBox_status_window_width.setEnabled(False)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.checkBox_status_window_width.sizePolicy().hasHeightForWidth())
+        self.checkBox_status_window_width.setSizePolicy(sizePolicy)
+        self.checkBox_status_window_width.setMinimumSize(QtCore.QSize(0, 30))
+        self.checkBox_status_window_width.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.checkBox_status_window_width.setWhatsThis("")
+        self.checkBox_status_window_width.setAccessibleName("")
+        self.checkBox_status_window_width.setAccessibleDescription("")
+        self.checkBox_status_window_width.setStyleSheet("")
+        self.checkBox_status_window_width.setText("")
+        self.checkBox_status_window_width.setChecked(True)
+        self.checkBox_status_window_width.setTristate(False)
+        self.checkBox_status_window_width.setObjectName("checkBox_status_window_width")
+        self.layout_start_range_8.addWidget(self.checkBox_status_window_width)
         self.layout_frequency_range_3.addWidget(self.widget_input_window_view)
         self.layout_bottom.addWidget(self.groupBox_window_view)
         self.pushButton_save_table_to_file = QtWidgets.QPushButton(self.widget_bottom)
@@ -1050,6 +1126,7 @@ class Ui_Dialog(object):
         self.groupBox_threshold.setTitle(_translate("Dialog", "Пороговое значение"))
         self.label_text_units_threshold.setText(_translate("Dialog", " [%*max]"))
         self.pushButton_menu_calculate.setText(_translate("Dialog", "Вычислить"))
+        self.tableWidget_frequency_absorption.setSortingEnabled(False)
         self.groupBox_window_view.setTitle(_translate("Dialog", "Окно просмотра"))
         self.label_text_window_width.setText(_translate("Dialog", "Ширина окна просмотра \n"
 " найденных частот"))

@@ -200,7 +200,7 @@ class GuiProgram(Ui_Dialog):
         self.tableWidget_frequency_absorption.horizontalHeader().sectionClicked.connect(self.click_handler)
 
     # ИНИЦИАЛИЗАЦИЯ
-    # Инициализация: Пустой верхний график
+    # Пустой верхний график
     def initialize_figure(self, fig, ax):
         # Инициализирует фигуру matplotlib внутри контейнера GUI.
         # Вызываем только один раз при инициализации
@@ -217,7 +217,7 @@ class GuiProgram(Ui_Dialog):
                                           coordinates=True)
         self.layout_plot_1.addWidget(self.toolbar1)
 
-        # Инициализация: Пустой нижний график
+        # Пустой нижний график
 
     def initialize_figure2(self, fig, ax):
         # Инициализирует фигуру matplotlib внутри контейнера GUI.
@@ -555,7 +555,7 @@ class GuiProgram(Ui_Dialog):
         ])
 
         # Перерисовываем
-        self.canvas.draw()
+        self.canvas1.draw()
 
     # Кнопка сохранения таблицы
     def saving_data(self):

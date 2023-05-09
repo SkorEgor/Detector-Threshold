@@ -124,28 +124,28 @@ class GuiProgram(Ui_Dialog):
         self.lines_file_without_gas = None
         self.lines_file_with_gas = None
 
-        # Параметры графика
-        self.fig = None
-        self.canvas = None
-        self.toolbar = None
         # Параметры 1 графика
         self.ax1 = None
+        self.fig1 = None
+        self.canvas1 = None
+        self.toolbar1 = None
         self.title1 = "График №1. Данные с исследуемым веществом и без."
         self.horizontal_axis_name1 = "Частота [МГц]"
         self.vertical_axis_name1 = "Гамма"
         self.name_without_gas = "Без вещества"
         self.name_with_gas = "C веществом"
         self.list_absorbing = "Участок с линией поглощения"
+
         # Параметры 2 графика
         self.ax2 = None
+        self.fig2 = None
+        self.canvas2 = None
+        self.toolbar2 = None
         self.title2 = "График №2. Положительная разница между данными."
         self.horizontal_axis_name2 = "Частота [МГц]"
         self.vertical_axis_name2 = "Отклонение"
         self.name_difference = "Разница"
         self.list_threshold = "Порог"
-        # Кеширование графика
-        self.graph_cache_ax1 = None
-        self.graph_cache_ax2 = None
 
         # Статистика таблицы
         self.total_rows = 0
@@ -170,11 +170,15 @@ class GuiProgram(Ui_Dialog):
         # Устанавливаем пользовательский интерфейс
         self.setupUi(dialog)
 
-        # Инициализируем фигуру графика в нашем окне
-        figure = Figure()  # Готовим пустую фигуру
-        self.ax1 = figure.add_subplot(211)  # Пустой участок
-        self.ax2 = figure.add_subplot(212)
-        self.initialize_figure(figure)  # Инициализируем!
+        # Инициализируем фигуру в нашем окне
+        figure1 = Figure()  # Готовим пустую фигуру
+        axis1 = figure1.add_subplot(111)  # Пустой участок
+        self.initialize_figure(figure1, axis1)  # Инициализируем!
+
+        # Аналогично для второго графика
+        figure2 = Figure()
+        axis2 = figure2.add_subplot(111)
+        self.initialize_figure2(figure2, axis2)
 
         # Обработчики нажатий - кнопок порядка работы
         self.pushButton_reading_file_no_gas.clicked.connect(self.plotting_without_noise)  # Загрузить данные с вакуума
@@ -196,21 +200,40 @@ class GuiProgram(Ui_Dialog):
         self.tableWidget_frequency_absorption.horizontalHeader().sectionClicked.connect(self.click_handler)
 
     # ИНИЦИАЛИЗАЦИЯ
-    # Графика
-    def initialize_figure(self, fig):
+    # Инициализация: Пустой верхний график
+    def initialize_figure(self, fig, ax):
         # Инициализирует фигуру matplotlib внутри контейнера GUI.
         # Вызываем только один раз при инициализации
 
-        # Создание фигуры
-        self.fig = fig
+        # Создание фигуры (self.fig и self.ax)
+        self.fig1 = fig
+        self.ax1 = ax
         # Создание холста
-        self.canvas = FigureCanvas(self.fig)
-        self.plotLayout.addWidget(self.canvas)
-        self.canvas.draw()
+        self.canvas1 = FigureCanvas(self.fig1)
+        self.layout_plot_1.addWidget(self.canvas1)
+        self.canvas1.draw()
         # Создание Toolbar
-        self.toolbar = NavigationToolbar(self.canvas, self.widget_plotting,
-                                         coordinates=True)
-        self.plotLayout.addWidget(self.toolbar)
+        self.toolbar1 = NavigationToolbar(self.canvas1, self.widget_plot_1,
+                                          coordinates=True)
+        self.layout_plot_1.addWidget(self.toolbar1)
+
+        # Инициализация: Пустой нижний график
+
+    def initialize_figure2(self, fig, ax):
+        # Инициализирует фигуру matplotlib внутри контейнера GUI.
+        # Вызываем только один раз при инициализации
+
+        # Создание фигуры (self.fig и self.ax)
+        self.fig2 = fig
+        self.ax2 = ax
+        # Создание холста
+        self.canvas2 = FigureCanvas(self.fig2)
+        self.layout_plot_2.addWidget(self.canvas2)
+        self.canvas2.draw()
+        # Создание Toolbar
+        self.toolbar2 = NavigationToolbar(self.canvas2, self.widget_plot_2,
+                                          coordinates=True)
+        self.layout_plot_2.addWidget(self.toolbar2)
 
     # Инициализация: Пустая таблица
     def initialize_table(self):
@@ -604,13 +627,10 @@ class GuiProgram(Ui_Dialog):
         # Данных нет - сброс
         if self.data_signals.data_without_gas.empty and self.data_signals.data_with_gas.empty and list_absorbing:
             return
-        # Если есть 2 график в буфере, подгружаем
-        if self.graph_cache_ax2:
-            self.canvas.restore_region(self.graph_cache_ax2)
 
         # Отрисовка
-        self.toolbar.home()  # Возвращаем зум
-        self.toolbar.update()  # Очищаем стек осей (от старых x, y lim)
+        self.toolbar1.home()  # Возвращаем зум
+        self.toolbar1.update()  # Очищаем стек осей (от старых x, y lim)
         # Очищаем график
         self.ax1.clear()
         # Название осей и графика
@@ -644,23 +664,19 @@ class GuiProgram(Ui_Dialog):
         # Инициирует отображение названия графика и различных надписей на нем.
         self.ax1.legend()
         # Убеждаемся, что все помещается внутри холста
-        self.fig.tight_layout()
+        self.fig1.tight_layout()
         # Показываем новую фигуру в интерфейсе
-        self.canvas.draw()
-        self.graph_cache_ax1 = self.canvas.copy_from_bbox(self.ax1.bbox)
+        self.canvas1.draw()
 
     # График отклонений
     def updating_deviation_graph(self, threshold=None):
         # Данных нет - сброс
         if self.data_signals.data_difference.empty and not threshold:
             return
-        # Если есть 1 график в буфере, подгружаем
-        if self.graph_cache_ax1:
-            self.canvas.restore_region(self.graph_cache_ax1)
 
         # Отрисовка
-        self.toolbar.home()  # Возвращаем зум
-        self.toolbar.update()  # Очищаем стек осей (от старых x, y lim)
+        self.toolbar2.home()  # Возвращаем зум
+        self.toolbar2.update()  # Очищаем стек осей (от старых x, y lim)
         # Очищаем график
         self.ax2.clear()
         # Название осей и графика
@@ -684,11 +700,10 @@ class GuiProgram(Ui_Dialog):
         # Инициирует отображение названия графика и различных надписей на нем.
         self.ax2.legend()
         # Убеждаемся, что все помещается внутри холста
-        self.fig.tight_layout()
+        self.fig2.tight_layout()
         # Показываем новую фигуру в интерфейсе
-        self.canvas.draw()
-        self.toolbar.push_current()  # Сохранить текущий статус zoom как домашний
-        self.graph_cache_ax2 = self.canvas.copy_from_bbox(self.ax2.bbox)  # Сохраняем в буфер
+        self.canvas2.draw()
+        self.toolbar2.push_current()  # Сохранить текущий статус zoom как домашний
 
     # Диапазон частот
     def updating_frequency_range(self):

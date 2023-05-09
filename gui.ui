@@ -1997,7 +1997,7 @@ background-color: rgb(124, 124, 124);
 background-color: rgb(255, 255, 255);
 background-color: rgb(240, 240, 240);</string>
            </property>
-           <layout class="QVBoxLayout" name="plotLayout">
+           <layout class="QVBoxLayout" name="verticalLayout">
             <property name="spacing">
              <number>0</number>
             </property>
@@ -2013,6 +2013,48 @@ background-color: rgb(240, 240, 240);</string>
             <property name="bottomMargin">
              <number>0</number>
             </property>
+            <item>
+             <widget class="QWidget" name="widget_plot_1" native="true">
+              <layout class="QVBoxLayout" name="layout_plot_1">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="widget_plot_2" native="true">
+              <layout class="QVBoxLayout" name="layout_plot_2">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+              </layout>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>

@@ -132,9 +132,13 @@ class GuiProgram(Ui_Dialog):
         self.title1 = "График №1. Данные с исследуемым веществом и без."
         self.horizontal_axis_name1 = "Частота [МГц]"
         self.vertical_axis_name1 = "Гамма"
+
         self.name_without_gas = "Без вещества"
+        self.color_without_gas = "#515151"
         self.name_with_gas = "C веществом"
+        self.color_with_gas = "#DC7C02"
         self.list_absorbing = "Участок с линией поглощения"
+        self.color_absorbing = "#36F62D"
 
         # Параметры 2 графика
         self.ax2 = None
@@ -144,8 +148,11 @@ class GuiProgram(Ui_Dialog):
         self.title2 = "График №2. Положительная разница между данными."
         self.horizontal_axis_name2 = "Частота [МГц]"
         self.vertical_axis_name2 = "Отклонение"
+
         self.name_difference = "Разница"
+        self.color_difference = "#310DEC"
         self.list_threshold = "Порог"
+        self.color_threshold = "#EE2816"
 
         # Статистика таблицы
         self.total_rows = 0
@@ -642,23 +649,23 @@ class GuiProgram(Ui_Dialog):
             self.ax1.plot(
                 self.data_signals.data_without_gas.index,
                 self.data_signals.data_without_gas.values,
-                color='r', label=self.name_without_gas)
+                color=self.color_without_gas, label=self.name_without_gas)
         # Если есть данные с газом, строим график
         if not self.data_signals.data_with_gas.empty:
             self.ax1.plot(
                 self.data_signals.data_with_gas.index,
                 self.data_signals.data_with_gas.values,
-                color='g', label=self.name_with_gas)
+                color= self.color_with_gas, label=self.name_with_gas)
         # Выделение промежутков
         if list_absorbing:
 
             self.ax1.plot(
                 list_absorbing[0].index, list_absorbing[0].values,
-                color='b', label=self.list_absorbing
+                color=self.color_absorbing, label=self.list_absorbing
             )
 
             for i in list_absorbing:
-                self.ax1.plot(i.index, i.values, color='b')
+                self.ax1.plot(i.index, i.values, color=self.color_absorbing)
         # Рисуем сетку
         self.ax1.grid()
         # Инициирует отображение названия графика и различных надписей на нем.
@@ -688,13 +695,13 @@ class GuiProgram(Ui_Dialog):
             self.ax2.plot(
                 self.data_signals.data_difference.index,
                 self.data_signals.data_difference.values,
-                color='g', label=self.name_difference)
+                color=self.color_difference, label=self.name_difference)
         # Если есть порог, строим график
         if threshold:
             self.ax2.plot(
                 self.data_signals.data_difference.index,
                 threshold,
-                color='r', label=self.list_threshold)
+                color=self.color_threshold, label=self.list_threshold)
         # Рисуем сетку
         self.ax2.grid()
         # Инициирует отображение названия графика и различных надписей на нем.

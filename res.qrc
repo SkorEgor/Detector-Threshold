@@ -3,6 +3,10 @@
     <file>resource/checkbox_status_success/check_error_red_24dp.svg</file>
     <file>resource/checkbox_status_success/check_ok_grean_24dp.svg</file>
   </qresource>
+  <qresource prefix="expand2">
+    <file>resource/expand_2/down_black_36dp.svg</file>
+    <file>resource/expand_2/up_black_24dp.svg</file>
+  </qresource>
   <qresource prefix="shared">
     <file>resource/file_download_white_24dp.svg</file>
   </qresource>
@@ -11,9 +15,12 @@
     <file>resource/table/table_rows_white_36dp.svg</file>
   </qresource>
   <qresource prefix="menu_titles">
+    <file>resource/menu_titles/menu_noise_white_36dp.svg</file>
+    <file>resource/menu_titles/menu_correlation_white_36dp.svg</file>
     <file>resource/menu_titles/done_white_36dp.svg</file>
     <file>resource/menu_titles/menu_minus_white_36dp.svg</file>
     <file>resource/menu_titles/menu_data_white_36dp.svg</file>
+    <file>resource/menu_titles/menu_width_white_36dp.svg</file>
   </qresource>
   <qresource prefix="application picture">
     <file>resource/application picture/app_icon.png</file>
@@ -23,5 +30,28 @@
     <file>resource/table_checkbox/var2_color/mixed_white_24dp.svg</file>
     <file>resource/table_checkbox/var2_color/no_red_24dp.svg</file>
     <file>resource/table_checkbox/var2_color/yes_green_24dp.svg</file>
+  </qresource>
+  <qresource prefix="update">
+    <file>resource/update/update1_white_18dp.svg</file>
+    <file>resource/update/update2_white_18dp.svg</file>
+  </qresource>
+  <qresource prefix="menu_black">
+    <file>resource/menu_titles_black/sigma_black.svg</file>
+    <file>resource/menu_titles_black/menu_correlation_black_36dp.svg</file>
+    <file>resource/menu_titles_black/menu_data_black_36dp.svg</file>
+    <file>resource/menu_titles_black/menu_noise_black_36dp.svg</file>
+    <file>resource/menu_titles_black/menu_width_black_36dp.svg</file>
+  </qresource>
+  <qresource prefix="expand">
+    <file>resource/expand/down_black_36dp.svg</file>
+    <file>resource/expand/up_black_36dp.svg</file>
+  </qresource>
+  <qresource prefix="toggle_color_theme">
+    <file>resource/toggle_color_theme/toggle_off_black.svg</file>
+    <file>resource/toggle_color_theme/toggle_on_white.svg</file>
+  </qresource>
+  <qresource prefix="toggle">
+    <file>resource/toggle/toggle_off_black_36dp.svg</file>
+    <file>resource/toggle/toggle_on_white_36dp.svg</file>
   </qresource>
 </RCC>

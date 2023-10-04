@@ -358,11 +358,11 @@ class GuiProgram(Ui_Dialog):
         # Для чтения файла (если файл тот же - пропускаем)
         if not skip_read:
             # Вызов окна выбора файла
-            # filename, filetype = QFileDialog.getOpenFileName(None,
-            #                                                  "Выбрать файл без шума",
-            #                                                  ".",
-            #                                                  "Spectrometer Data(*.csv);;All Files(*)")
-            self.file_name_without_gas = "25empty.csv"
+            self.file_name_without_gas, filetype = QFileDialog.getOpenFileName(None,
+                                                             "Выбрать файл без вещества",
+                                                             ".",
+                                                             "Spectrometer Data(*.csv);;All Files(*)")
+            # self.file_name_without_gas = "25empty.csv"
 
             # Если имя файла не получено, сброс
             if not self.file_name_without_gas:
@@ -425,11 +425,11 @@ class GuiProgram(Ui_Dialog):
     def signal_plotting(self, skip_read=False):
         if not skip_read:
             # Вызов окна выбора файла
-            # filename, filetype = QFileDialog.getOpenFileName(None,
-            #                                                  "Выбрать файл сигнала",
-            #                                                  ".",
-            #                                                  "Spectrometer Data(*.csv);;All Files(*)")
-            self.file_name_with_gas = "25DMSO.csv"
+            self.file_name_with_gas, filetype = QFileDialog.getOpenFileName(None,
+                                                             "Выбрать файл с веществом",
+                                                             ".",
+                                                             "Spectrometer Data(*.csv);;All Files(*)")
+            # self.file_name_with_gas = "25DMSO.csv"
 
             # Если имя файла не получено, сброс
             if not self.file_name_with_gas:

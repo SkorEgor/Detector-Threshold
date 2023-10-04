@@ -1385,7 +1385,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Детектирование сигнала - метод Корреляции"))
+        Dialog.setWindowTitle(_translate("Dialog", "Детектирование сигнала - метод Разницы"))
         self.label_text_app_name.setText(_translate("Dialog", "Детектор"))
         self.pushButton_data_header.setText(_translate("Dialog", "Данные"))
         self.groupBox_no_gas.setTitle(_translate("Dialog", "Без исследуемого вещества"))

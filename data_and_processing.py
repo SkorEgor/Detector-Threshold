@@ -63,7 +63,6 @@ class DataAndProcessing:
         # Нет данных - сброс
         if self.data["without_gas"].isnull().values.all() or self.data["with_gas"].isnull().values.all():
             return
-
         # Считаем разницу
         self.data["difference"] = (self.data["with_gas"] - self.data["without_gas"]).clip(lower=0)
 

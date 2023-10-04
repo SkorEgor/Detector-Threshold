@@ -35,15 +35,13 @@
 ---
 
 <h2 align="left"> 1. Описание задачи и демонстрация работы </h2>
-Программа для нахождения особых точек (линий поглощения) в сигнале/данных с шумом, полученных со спектрометра. 
-
-![1.PictureControl.png](https://github.com/SkorEgor/GraphDrawing/blob/writingREADME/Картинки/1.PictureControl.png)
-
-<img src="https://github.com/SkorEgor/GraphDrawing/raw/writingREADME/Картинки/9.ExampleWin.png" width=300>
-<img src="https://github.com/SkorEgor/GraphDrawing/raw/writingREADME/Картинки/9.ExampleWin.png" align="center" width=300>
-<img src="https://github.com/SkorEgor/GraphDrawing/raw/writingREADME/Картинки/9.ExampleWin.png" align="middle" width=300>
-
+Программа для нахождения особых точек (линий поглощения) в сигнале/данных с шумом, полученных со спектрометра.
 <br><br>
+<div align="center">
+<!--- 1.PictureControl.png -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/1_full_time.gif" >
+</div>
+
 <!---------------------------------------------------------------------------------->
 
 ---
@@ -73,7 +71,6 @@ FREQUENCY:	GAMMA:
 ***********************************************************
 ```
 
-<br><br>
 <!---------------------------------------------------------------------------------->
 
 ---
@@ -82,16 +79,20 @@ FREQUENCY:	GAMMA:
 
 1. Получение положительной разности, между спектрами с газом и без газа (_Получение синего графика_)
 2. Вычисление и построение порогового значения, как процент от максимальной разницы (_Получение красного графика_)
-
-<h2 align="center"> (2) Картинка исходных данных и разницы </h2>
+<div align="center">
+<!--- (2) Картинка исходных данных и разницы -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/2_picture_source_data_and_differences.jpg" >
+</div>
 
 3. Находим координаты линий поглощения
    1. Интервалы выше порога считаем участками с линией поглощения (График 1. Участок зеленый)
    2. Находим максимальное значение на участках -> ему соответствует координата линии поглощения
-   
-   <h2 align="center"> (3) Картинка таблицы </h2>
 
-<br><br>
+<div align="center">
+<!--- (3) Картинка таблицы - -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/3_table_picture.jpg" >
+</div>
+
 <!---------------------------------------------------------------------------------->
 
 ---
@@ -270,7 +271,10 @@ dtype: float64
 
 <h2 align="left"> 5. Описание пользовательского интерфейса </h2>
 
-   <h2 align="center"> (4) Картинка интерфейса </h2>
+<div align="center">
+<!--- (4) Картинка интерфейса - -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/4_interface_picture.jpg" >
+</div>
 
 Интерфейс делится на 3 функциональные зоны:
 
@@ -278,38 +282,58 @@ dtype: float64
 2. область графиков для отображения входных и расчётных данных;
 3. вкладка с таблицей полученных линий поглощения и кнопкой сохранения результирующих данных.
 
-<br><br>
+
 <!---------------------------------------------------------------------------------->
 <h2 align="left"> 5.1. Меню </h2>
 <h3 align="left"> 5.1.1. Меню - Заголовок </h3>
 
 Представляет собой название программы и переключатель цветовой темы
 
-<h2 align="center"> (5) gif переключения цветовой схемы.jpg </h2>
+<div align="center">
+<!--- (5) gif переключения цветовой схемы.jpg -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/5_color_theme_switch.png" >
+</div>
 
 Приложение поддерживает две цветовые темы: темная и светлая.
 
-<h2 align="center"> (5) gif переключения цветовой схемы.gif </h2>
+<div align="center">
+<!--- (5) gif переключения цветовой схемы.gif - -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/5_color_theme_switch.gif" >
+</div>
 
 <h3 align="left"> 5.1.2. Меню - Вкладки для входных данных и параметров обработки </h3>
 
 Вкладки для входных данных и параметров обработки располагаются под названием приложения. Имеется две вкладки: «Данные» и «Разница».
 Скрыть и раскрыть каждую можно по нажатию на заголовок. Если вкладки не умещаются, появляется ползунок
 
-   <h2 align="center"> (6) gif скрыть и раскрыть вкладку </h2>
+<div align="center">
+<!--- (6) gif скрыть и раскрыть вкладку -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/6_hide_and_reveal_tab.gif" >
+</div>
 
 <h3 align="left"> 5.1.3. Меню - Загрузка файла данных со спектрометра </h3>
 
-   <h2 align="center"> (7) загрузка данных и выбор диапазона </h2>
+<div align="center">
+<!--- (7) загрузка данных и выбор диапазона -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/7_loading_data_and_selecting_range.gif" >
+</div>
 
 1. Первостепенно загружаются данные со спектрометра, для этого необходимо нажать кнопки загрузки во кладке «Данные» в полях «Без ис-следуемого вещества» и «С исследуемым веществом».
 2. После нажатия появится диалоговое окно «Выбрать файл без вещества» или «Выбрать файл с веществом». В диалоге реализована фильтрация по расширению названия файлов (*.csv)
 3. В случае успешной загрузки данных отобразится график и изменится иконка статуса данных справа от загрузки. В случае, если данные не загрузятся, статус не поменяется и останется красным
 4. Предварительно или после загрузки данных можно выбрать диапазон отображаемых данных.
-   1. все данные 
-   <h2 align="center"> (8) все данные  </h2>
+   1. все данные
+   <div align="center">
+   <!--- (8) все данные -->
+   <img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/8_all_data.jpg" >
+   </div>   <br>
+
    2. данные в конкретном диапазоне частот, при этом необходимо указать начало и конец загружаемого диапазона частот
-   <h2 align="center"> (8) диапазона данных  </h2>
+   <div align="center">
+   <!--- (8) диапазона данных -->
+   <img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/8_data_range.jpg" >
+   </div>
+   <br>
 
 <h3 align="left"> 5.1.4. Меню - Ввод параметров </h3>
 
@@ -317,29 +341,47 @@ dtype: float64
 
 В случае неверного ввода параметра (введена буква вместо цифры, введено положительное число вместо отрицательного, введено дробное число вместо целого и т.д.), программа сообщит об ошибке через соответствующий индикатор справа.
 
- <h2 align="center"> (9) индикации ошибки   </h2>
+<div align="center">
+<!--- (9) индикации ошибки -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/9_error_indications.png" >
+</div>
 
 Если ошибка не устранена и идет запуск вычисления, программа остановится и появится окно ошибки 
 
-<h2 align="center"> (10) Окно ошибки   </h2>
+<div align="center">
+<!--- (10) Окно ошибки -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/10_windows_error.jpg" >
+</div>
 
 Последовательная обработка всех ошибок
 
-<h2 align="center"> (11) Последовательная обработка всех ошибок   </h2>
+<div align="center">
+<!--- (11) Последовательная обработка всех ошибок -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/11_sequential_processing_all_errors.gif" >
+</div>
 
 <h3 align="left"> 5.1.5. Кнопки управления в нижней части меню  </h3>
 
 В нижней части меню расположены две кнопки: «Таблица» и «Вычислить».
 
-<h2 align="center"> (12) кнопки_таблица_и_вычислить   </h2>
+<div align="center">
+<!--- (12) кнопки_таблица_и_вычислить -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/12_buttons_table_and_calculate.jpg" >
+</div>
 
 - Кнопка «Таблица» скрывает и раскрывает боковую панель с таблицей линий поглощения 
 
-<h2 align="center"> 13_раскрытие_и_сворачивание_таблицы   </h2>
+<div align="center">
+<!--- 13_раскрытие_и_сворачивание_таблицы -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/13_expanding_and_collapse_table.gif" >
+</div>
 
 - Кнопка «Вычислить» проверяет правильность введенных данных и проводит вычисление. Обязательной является предварительная загрузка данных со спектрометра. 
 
-<h2 align="center"> 14_раскрытие_и_сворачивание_таблицы   </h2>
+<div align="center">
+<!--- 14_раскрытие_и_сворачивание_таблицы -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/14_button_calculate.gif" >
+</div>
 
 <br><br>
 <!---------------------------------------------------------------------------------->
@@ -348,7 +390,10 @@ dtype: float64
 
 Область построения графиков предназначена для графического отображения данных, загруженных в программу или полученных в ходе вычислений. Одновременно на экране программы показываются один график или два графика.
 
-<h2 align="center"> 15_one_or_two_graphics   </h2>
+<div align="center">
+<!--- 15_one_or_two_graphics -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/15_one_or_two_graphics.gif" >
+</div>
 
 Сворачивание нижнего графика происходит по левой кнопке (стрелки вниз), нижней панели инструментов
 <h3 align="left"> 5.2.2. Инструменты для работы с графиком - toolbar  </h3>
@@ -359,9 +404,11 @@ dtype: float64
 - Кнопка настройки параметров отображения
 - Кнопка сохранения в файл (флоппи-диск)
 
-<h2 align="center"> 16_toolbar   </h2>
+<div align="center">
+<!--- 16_toolbar -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/16_toolbar.gif" >
+</div>
 
-<br><br>
 <!---------------------------------------------------------------------------------->
 <h2 align="left"> 5.3. Вкладка полученных линий поглощения   </h2>
 <h3 align="left"> 5.3.1. Таблица </h3>
@@ -394,11 +441,13 @@ III.только «крест»;
 
 При нажатии вызывает диалоговое окно для выбора пути и имени файла с данными, записываются линии со статусом «галочка». 
 
-<h3 align="left"> 5.3.5. Демонстрация работы с вкладкой таблицы </h3>
+<h3 align="left"> 5.3.5. Демонстрация работы со вкладкой таблица </h3>
 
-<h2 align="center"> 17_work_with_table   </h2>
+<div align="center">
+<!--- 17_work_with_table -->
+<img src="https://raw.githubusercontent.com/SkorEgor/picturesgifs-for-readme/RobotControl/Detector-Difference/17_work_with_table.gif" >
+</div>
 
-<br><br>
 <!---------------------------------------------------------------------------------->
 
 ---

@@ -37,7 +37,9 @@
 <h2 align="left"> 1. Описание задачи и демонстрация работы </h2>
 Программа для нахождения особых точек (линий поглощения) в сигнале/данных с шумом, полученных со спектрометра. 
 
-<h2 align="center"> (1) GIF ПОЛНОЙ РАБОТЫ </h2>
+![1.PictureControl.png](https://github.com/SkorEgor/GraphDrawing/blob/writingREADME/Картинки/1.PictureControl.png)
+
+<img src="https://github.com/SkorEgor/GraphDrawing/raw/writingREADME/Картинки/9.ExampleWin.png" width=300>
 
 <br><br>
 <!---------------------------------------------------------------------------------->

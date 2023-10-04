@@ -40,6 +40,8 @@
 ![1.PictureControl.png](https://github.com/SkorEgor/GraphDrawing/blob/writingREADME/Картинки/1.PictureControl.png)
 
 <img src="https://github.com/SkorEgor/GraphDrawing/raw/writingREADME/Картинки/9.ExampleWin.png" width=300>
+<img src="https://github.com/SkorEgor/GraphDrawing/raw/writingREADME/Картинки/9.ExampleWin.png" align="center" width=300>
+<img src="https://github.com/SkorEgor/GraphDrawing/raw/writingREADME/Картинки/9.ExampleWin.png" align="middle" width=300>
 
 <br><br>
 <!---------------------------------------------------------------------------------->
